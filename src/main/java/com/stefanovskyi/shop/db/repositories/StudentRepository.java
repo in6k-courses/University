@@ -1,4 +1,4 @@
-package com.stefanovskyi.shop.db;
+package com.stefanovskyi.shop.db.repositories;
 
 import com.stefanovskyi.shop.model.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
