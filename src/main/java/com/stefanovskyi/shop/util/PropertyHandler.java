@@ -1,4 +1,4 @@
-package com.stefanovskyi.shop;
+package com.stefanovskyi.shop.util;
 
 import java.net.URI;
 import java.net.URISyntaxException;
