@@ -13,13 +13,11 @@ public class Subject {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany
     @Column(name = "studentId")
-    private Student studentId;
+    private Integer studentId;
 
-    @ManyToOne
     @Column(name = "teacherId")
-    private Teacher teacherId;
+    private Integer teacherId;
 
     public Integer getId() {
         return id;
@@ -37,19 +35,19 @@ public class Subject {
         this.name = name;
     }
 
-    public Student getStudentId() {
+    public Integer getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(Student studentId) {
+    public void setStudentId(Integer studentId) {
         this.studentId = studentId;
     }
 
-    public Teacher getTeacherId() {
+    public Integer getTeacherId() {
         return teacherId;
     }
 
-    public void setTeacherId(Teacher teacherId) {
+    public void setTeacherId(Integer teacherId) {
         this.teacherId = teacherId;
     }
 }

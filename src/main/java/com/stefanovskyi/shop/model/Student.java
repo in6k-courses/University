@@ -16,9 +16,8 @@ public class Student {
     @Column(name = "course")
     private Integer course;
 
-    @ManyToMany
     @Column(name = "subId")
-    private Subject subId;
+    private Integer subId;
 
     public Student() {
     }
@@ -47,11 +46,11 @@ public class Student {
         this.course = course;
     }
 
-    public Subject getSubId() {
+    public Integer getSubId() {
         return subId;
     }
 
-    public void setSubId(Subject subId) {
+    public void setSubId(Integer subId) {
         this.subId = subId;
     }
 }

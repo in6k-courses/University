@@ -13,9 +13,8 @@ public class Teacher {
     @Column(name = "name")
     private String name;
 
-    @OneToMany
     @Column(name = "subId")
-    private Subject subId;
+    private Integer subId;
 
     public Teacher() {
     }
@@ -36,11 +35,11 @@ public class Teacher {
         this.name = name;
     }
 
-    public Subject getSubId() {
+    public Integer getSubId() {
         return subId;
     }
 
-    public void setSubId(Subject subId) {
+    public void setSubId(Integer subId) {
         this.subId = subId;
     }
 }
