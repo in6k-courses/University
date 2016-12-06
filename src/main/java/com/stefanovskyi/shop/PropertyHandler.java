@@ -7,8 +7,8 @@ import java.net.URISyntaxException;
 public class PropertyHandler {
     private URI uri;
     private String[] userInfo;
-    private String driver = "org.postgresql.Driver";
-    private String dialect = "org.hibernate.dialect.PostgreSQLDialect";
+    private String driver = "com.mysql.jdbc.Driver";
+    private String dialect = "org.hibernate.dialect.MySQLDialect";
     private String show_sql = "false";
     private String hbm2ddlAuto = "update";
 
