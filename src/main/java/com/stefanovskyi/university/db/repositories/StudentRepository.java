@@ -1,6 +1,6 @@
-package com.stefanovskyi.shop.db.repositories;
+package com.stefanovskyi.university.db.repositories;
 
-import com.stefanovskyi.shop.model.Student;
+import com.stefanovskyi.university.model.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

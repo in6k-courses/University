@@ -1,6 +1,6 @@
-package com.stefanovskyi.shop.db.service;
+package com.stefanovskyi.university.db.service;
 
-import com.stefanovskyi.shop.model.Student;
+import com.stefanovskyi.university.model.Student;
 
 import java.util.List;
 

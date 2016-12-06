@@ -1,6 +1,6 @@
-package com.stefanovskyi.shop.config;
+package com.stefanovskyi.university.config;
 
-import com.stefanovskyi.shop.util.PropertyHandler;
+import com.stefanovskyi.university.util.PropertyHandler;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +19,7 @@ import java.util.Properties;
 
 @EnableWebMvc
 @EnableAutoConfiguration
-@EnableJpaRepositories("com.stefanovskyi.shop")
+@EnableJpaRepositories("com.stefanovskyi.university")
 @Configuration
 public class DataBaseConfig {
     @Bean
@@ -55,7 +55,7 @@ public class DataBaseConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() throws URISyntaxException {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(getDataSource());
-        em.setPackagesToScan("com.stefanovskyi.shop");
+        em.setPackagesToScan("com.stefanovskyi.university");
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);

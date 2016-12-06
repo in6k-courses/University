@@ -1,4 +1,4 @@
-package com.stefanovskyi.shop.model;
+package com.stefanovskyi.university.model;
 
 import javax.persistence.*;
 

@@ -1,25 +1,22 @@
-package com.stefanovskyi.shop.model;
+package com.stefanovskyi.university.model;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "student")
-public class Student {
+@Table(name = "teacher")
+public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", unique = true)
+    @Column(name = "id")
     private Integer id;
 
     @Column(name = "name")
     private String name;
 
-    @Column(name = "course")
-    private Integer course;
-
     @Column(name = "subId")
     private Integer subId;
 
-    public Student() {
+    public Teacher() {
     }
 
     public Integer getId() {
@@ -36,14 +33,6 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Integer getCourse() {
-        return course;
-    }
-
-    public void setCourse(Integer course) {
-        this.course = course;
     }
 
     public Integer getSubId() {

@@ -1,7 +1,7 @@
-package com.stefanovskyi.shop.controller;
+package com.stefanovskyi.university.controller;
 
-import com.stefanovskyi.shop.db.service.SubjectService;
-import com.stefanovskyi.shop.model.Subject;
+import com.stefanovskyi.university.db.service.StudentService;
+import com.stefanovskyi.university.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,21 +11,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-@RequestMapping("/subject")
-public class SubjectController {
+@RequestMapping("/student")
+public class StudentController {
 
     @Autowired
-    SubjectService subjectService;
+    StudentService studentService;
 
     @RequestMapping("/")
     @ResponseBody
-    private List<Subject> getAllSubjects() {
-        return subjectService.getAll();
+    private List<Student> getAllStudents() {
+        return studentService.getAll();
     }
 
     @RequestMapping("/{id}")
     @ResponseBody
-    private Subject getTask(@PathVariable("id") Integer id) {
-        return subjectService.getOne(id);
+    private Student getTask(@PathVariable("id") Integer id) {
+        return studentService.getOne(id);
     }
 }
