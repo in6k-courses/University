@@ -13,6 +13,9 @@ public class Student {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "course")
+    private Integer course;
+
     @ManyToMany
     @Column(name = "subId")
     private Subject subId;
@@ -34,6 +37,14 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getCourse() {
+        return course;
+    }
+
+    public void setCourse(Integer course) {
+        this.course = course;
     }
 
     public Subject getSubId() {
