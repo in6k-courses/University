@@ -3,8 +3,8 @@ package com.stefanovskyi.shop.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "items")
-public class Item {
+@Table(name = "student")
+public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true)
@@ -13,10 +13,11 @@ public class Item {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "price")
-    private Integer price;
+    @ManyToMany
+    @Column(name = "subId")
+    private Subject subId;
 
-    public Item() {
+    public Student() {
     }
 
     public Integer getId() {
@@ -35,11 +36,11 @@ public class Item {
         this.name = name;
     }
 
-    public Integer getPrice() {
-        return price;
+    public Subject getSubId() {
+        return subId;
     }
 
-    public void setPrice(Integer price) {
-        this.price = price;
+    public void setSubId(Subject subId) {
+        this.subId = subId;
     }
 }
