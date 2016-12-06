@@ -1,6 +1,6 @@
 package com.stefanovskyi.shop.db.service;
 
-import com.stefanovskyi.shop.db.SubjectRepository;
+import com.stefanovskyi.shop.db.repositories.SubjectRepository;
 import com.stefanovskyi.shop.model.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

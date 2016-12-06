@@ -1,6 +1,6 @@
 package com.stefanovskyi.shop.db.service;
 
-import com.stefanovskyi.shop.db.StudentRepository;
+import com.stefanovskyi.shop.db.repositories.StudentRepository;
 import com.stefanovskyi.shop.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
