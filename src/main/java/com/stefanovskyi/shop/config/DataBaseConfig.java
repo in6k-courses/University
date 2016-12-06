@@ -1,19 +1,25 @@
 package com.stefanovskyi.shop.config;
 
-import com.stefanovskyi.shop.PropertyHandler;
+import com.stefanovskyi.shop.util.PropertyHandler;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import javax.persistence.EntityManager;
 import javax.sql.DataSource;
 import java.net.URISyntaxException;
 import java.util.Properties;
 
+@EnableWebMvc
+@EnableAutoConfiguration
+@EnableJpaRepositories("com.stefanovskyi.shop")
 @Configuration
 public class DataBaseConfig {
     @Bean
