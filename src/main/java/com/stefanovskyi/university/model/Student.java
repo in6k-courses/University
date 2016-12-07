@@ -16,8 +16,8 @@ public class Student {
     @Column(name = "course")
     private Integer course;
 
-    @Column(name = "subId")
-    private Integer subId;
+    @Column(name = "subjectId")
+    private Integer subjectId;
 
     public Student() {
     }
@@ -46,11 +46,11 @@ public class Student {
         this.course = course;
     }
 
-    public Integer getSubId() {
-        return subId;
+    public Integer getSubjectId() {
+        return subjectId;
     }
 
-    public void setSubId(Integer subId) {
-        this.subId = subId;
+    public void setSubjectId(Integer subjectId) {
+        this.subjectId = subjectId;
     }
 }

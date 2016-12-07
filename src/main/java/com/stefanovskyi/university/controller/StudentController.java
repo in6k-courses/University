@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-@RequestMapping("/student")
+@RequestMapping("/api/student")
 public class StudentController {
 
     @Autowired
@@ -25,7 +25,7 @@ public class StudentController {
 
     @RequestMapping("/{id}")
     @ResponseBody
-    private Student getTask(@PathVariable("id") Integer id) {
+    private Student getStudent(@PathVariable("id") Integer id) {
         return studentService.getOne(id);
     }
 }

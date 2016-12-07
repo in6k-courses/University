@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-@RequestMapping("/subject")
+@RequestMapping("/api/subject")
 public class SubjectController {
 
     @Autowired
@@ -25,7 +25,7 @@ public class SubjectController {
 
     @RequestMapping("/{id}")
     @ResponseBody
-    private Subject getTask(@PathVariable("id") Integer id) {
+    private Subject getSubject(@PathVariable("id") Integer id) {
         return subjectService.getOne(id);
     }
 }
