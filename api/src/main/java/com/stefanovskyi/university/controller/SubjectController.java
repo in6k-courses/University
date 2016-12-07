@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-@RequestMapping("/api/subject")
+@RequestMapping("/api/subjects")
 public class SubjectController {
 
     @Autowired
