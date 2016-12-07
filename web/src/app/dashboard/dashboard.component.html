@@ -8,15 +8,15 @@
             (click)="delete(student); $event.stopPropagation()">x</button>
   </li>
 </ul>
-<!--<div *ngIf="selectedStudent">-->
-  <!--<h2>-->
-    <!--{{selectedStudent.name | uppercase}} is my task-->
-  <!--</h2>-->
-  <!--<button (click)="goToDetail()">View Details</button>-->
-<!--</div>-->
-<!--<div>-->
-  <!--<label>Hero name:</label> <input #taskName />-->
-  <!--<button (click)="add(name.value); name.value=''">-->
-    <!--Add-->
-  <!--</button>-->
-<!--</div>-->
+<div *ngIf="selectedStudent">
+  <h2>
+    {{selectedStudent.name | uppercase}} is my task
+  </h2>
+  <button (click)="goToDetail()">View Details</button>
+</div>
+<div>
+  <label>Student name:</label> <input #taskName />
+  <button (click)="add(name.value); name.value=''">
+    Add
+  </button>
+</div>
