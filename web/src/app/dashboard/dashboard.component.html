@@ -1,0 +1,22 @@
+<h2>All Students</h2>
+<ul class="student">
+  <li *ngFor="let student of students"
+      [class.selected]="student === selectedStudent"
+      (click)="onSelect(student)">
+    <span class="badge">{{student.id}}</span> - {{student.name}}
+    <button class="delete"
+            (click)="delete(student); $event.stopPropagation()">x</button>
+  </li>
+</ul>
+<!--<div *ngIf="selectedStudent">-->
+  <!--<h2>-->
+    <!--{{selectedStudent.name | uppercase}} is my task-->
+  <!--</h2>-->
+  <!--<button (click)="goToDetail()">View Details</button>-->
+<!--</div>-->
+<!--<div>-->
+  <!--<label>Hero name:</label> <input #taskName />-->
+  <!--<button (click)="add(name.value); name.value=''">-->
+    <!--Add-->
+  <!--</button>-->
+<!--</div>-->
