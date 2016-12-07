@@ -10,13 +10,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { StudentDetailComponent } from './student-detail/student-detail.component';
 import { AppRoutingModule } from "./app-routing.module";
 import {SubjectService} from "./services/subject.service";
+import { SubjectComponent } from './subject/subject.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentComponent,
     DashboardComponent,
-    StudentDetailComponent
+    StudentDetailComponent,
+    SubjectComponent
   ],
   imports: [
     BrowserModule,
