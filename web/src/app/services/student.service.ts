@@ -1,7 +1,7 @@
 import 'rxjs/add/operator/toPromise';
 
 import { Injectable } from '@angular/core';
-import { Student } from './model/student'
+import { Student } from '../model/student'
 import { Http } from "@angular/http";
 
 @Injectable()
