@@ -22,7 +22,7 @@ public class SubjectServiceImpl implements SubjectService {
 
     @Override
     public Subject getOne(Integer id) {
-        return subjectRepository.getOne(id);
+        return subjectRepository.findOne(id);
     }
 
     @Override

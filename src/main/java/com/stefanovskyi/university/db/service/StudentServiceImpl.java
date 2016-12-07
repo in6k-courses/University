@@ -22,7 +22,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student getOne(Integer id) {
-        return studentRepository.getOne(id);
+        return studentRepository.findOne(id);
     }
 
     @Override

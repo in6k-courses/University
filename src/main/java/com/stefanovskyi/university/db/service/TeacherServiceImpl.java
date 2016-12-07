@@ -21,7 +21,7 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public Teacher getOne(Integer id) {
-        return teacherRepository.getOne(id);
+        return teacherRepository.findOne(id);
     }
 
     @Override
