@@ -1,3 +1,10 @@
-<p>
-  teacher works!
-</p>
+<h2>Teachers</h2>
+<ul class="teachers">
+  <li *ngFor="let teacher of teachers"
+      [class.selected]="teacher === selectedTeacher"
+      (click)="onSelect(teacher)">
+    <span class="badge">{{teacher.id}}</span> {{teacher.name}}
+    <button class="delete"
+            (click)="delete(teacher); $event.stopPropagation()">x</button>
+  </li>
+</ul>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Teacher} from "../model/teacher";
+import {Router} from "@angular/router";
+import {TeacherService} from "../services/teacher.service";
 
 @Component({
   selector: 'app-teacher',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeacherComponent implements OnInit {
 
-  constructor() { }
+  teachers: Teacher[];
+  selectedTeacher: Teacher;
+  constructor(
+      private router: Router,
+      private teacherService: TeacherService) { }
+
+  getTeachers(): void {
+    this.teacherService
+        .getTeachers()
+        .then(teachers => this.teachers = teachers);
+  }
+
+  goToDetail(): void {
+    this.router.navigate(['/detail/teacher', this.selectedTeacher.id]);
+  }
 
   ngOnInit() {
+    this.getTeachers();
+  }
+
+  onSelect(teacher: Teacher): void {
+    this.selectedTeacher = teacher;
   }
 
 }
