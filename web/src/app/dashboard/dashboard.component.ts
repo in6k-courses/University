@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Student} from "../model/student";
-import {StudentService} from "../student.service";
+import {StudentService} from "../services/student.service";
 
 @Component({
   moduleId: module.id.toString(),
