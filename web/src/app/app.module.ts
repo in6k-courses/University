@@ -11,6 +11,7 @@ import { StudentDetailComponent } from './student-detail/student-detail.componen
 import { AppRoutingModule } from "./app-routing.module";
 import {SubjectService} from "./services/subject.service";
 import { SubjectComponent } from './subject/subject.component';
+import { TeacherComponent } from './teacher/teacher.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SubjectComponent } from './subject/subject.component';
     StudentComponent,
     DashboardComponent,
     StudentDetailComponent,
-    SubjectComponent
+    SubjectComponent,
+    TeacherComponent
   ],
   imports: [
     BrowserModule,
