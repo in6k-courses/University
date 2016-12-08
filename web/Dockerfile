@@ -1,13 +1,16 @@
-FROM node
-RUN npm install -g npm
+FROM node:4.4
+RUN npm install -g npm angular-cli
 
-RUN mkdir /client
+RUN mkdir /web
 
-COPY src client/src
+COPY src web/src
 COPY *.json web/
-COPY e2e client/e2e
+COPY e2e web/e2e
 
-EXPOSE 3000 3001
+EXPOSE 4040
 
 WORKDIR /web
-CMD ["npm", "run", "deploy", "--unsafe-perm"]
+
+RUN npm install
+
+CMD ["npm", "run", "start"]
