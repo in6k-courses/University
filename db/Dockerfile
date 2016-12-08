@@ -1,0 +1,9 @@
+FROM mysql:5.7.16
+
+ENV MYSQL_PASSWORD root
+ENV MYSQL_ROOT_PASSWORD root
+ENV MYSQL_DATABASE student
+
+EXPOSE 3306
+
+RUN /entrypoint.sh
