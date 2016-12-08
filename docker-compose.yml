@@ -6,6 +6,11 @@ api:
   build: ./api
   ports:
    - "8080:8080"
+   volumes:
+       - ./api:/api
+   command: /bin/sh /api/run.sh
+   links:
+       - db
 web:
   build: ./web
   ports:
