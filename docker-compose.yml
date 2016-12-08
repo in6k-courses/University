@@ -1,0 +1,14 @@
+api:
+  build: ./api
+  ports:
+   - "8080:8080"
+web:
+  build: ./client
+  ports:
+   - "80:3000"
+   - "3000:3000"
+   - "3001:3001"
+  volumes:
+   - ./web:/web
+  links:
+   - api
