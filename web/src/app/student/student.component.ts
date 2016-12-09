@@ -35,4 +35,22 @@ export class StudentComponent implements OnInit {
     this.selectedStudent = student;
   }
 
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.studentService.create(name)
+        .then(student => {
+          this.students.push(student);
+          this.selectedStudent = null;
+        });
+  }
+
+    delete(student: Student): void {
+        this.studentService
+            .delete(student.id)
+            .then(() => {
+                this.students = this.students.filter(h => h !== student);
+                if (this.selectedStudent === student) { this.selectedStudent = null; }
+            });
+    }
 }
