@@ -1,17 +1,23 @@
 db:
- build: ./db
- ports:
+  env_file:
+    - database.env
+  build: ./db
+  ports:
     - "3307:3306"
 api:
+  env_file:
+    - api.env
   build: ./api
   ports:
-   - "8080:8080"
-   volumes:
-       - ./api:/api
-   command: /bin/sh /api/run.sh
-   links:
+      - "8080:8080"
+  volumes:
+      - ./api:/api
+  command: /bin/sh /api/run.sh
+  links:
        - db
 web:
+  env_file:
+    - web.env
   build: ./web
   ports:
    - "4040:4040"
