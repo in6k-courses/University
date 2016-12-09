@@ -1,37 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Teacher} from "../model/teacher";
 import {Router} from "@angular/router";
 import {TeacherService} from "../services/teacher.service";
 
 @Component({
-  selector: 'app-teacher',
-  templateUrl: './teacher.component.html',
-  styleUrls: ['./teacher.component.css']
+    selector: 'app-teacher',
+    templateUrl: './teacher.component.html',
+    styleUrls: ['./teacher.component.css'],
+    providers: [TeacherService]
 })
 export class TeacherComponent implements OnInit {
 
-  teachers: Teacher[];
-  selectedTeacher: Teacher;
-  constructor(
-      private router: Router,
-      private teacherService: TeacherService) { }
+    teachers: Teacher[];
+    selectedTeacher: Teacher;
 
-  getTeachers(): void {
-    this.teacherService
-        .getTeachers()
-        .then(teachers => this.teachers = teachers);
-  }
+    constructor(private router: Router,
+                private teacherService: TeacherService) {
+    }
 
-  goToDetail(): void {
-    this.router.navigate(['/detail/teacher', this.selectedTeacher.id]);
-  }
+    getTeachers(): void {
+        this.teacherService
+            .getTeachers()
+            .then(teachers => this.teachers = teachers);
+    }
 
-  ngOnInit() {
-    this.getTeachers();
-  }
+    goToDetail(): void {
+        this.router.navigate(['/detail/teacher', this.selectedTeacher.id]);
+    }
 
-  onSelect(teacher: Teacher): void {
-    this.selectedTeacher = teacher;
-  }
+    ngOnInit() {
+        this.getTeachers();
+    }
+
+    onSelect(teacher: Teacher): void {
+        this.selectedTeacher = teacher;
+    }
 
 }
