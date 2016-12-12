@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Student} from "../model/student";
-import {StudentService} from "../services/student.service";
+import { Teacher } from "../model/teacher";
+import {TeacherService} from "../services/teacher.service";
 
 @Component({
   moduleId: module.id.toString(),
@@ -10,12 +10,12 @@ import {StudentService} from "../services/student.service";
 })
 export class DashboardComponent implements OnInit {
 
-  students: Student [] = [];
-  constructor(private studentService : StudentService) {}
+  teachers: Teacher [] = [];
+  constructor(private teacherService : TeacherService) {}
 
   ngOnInit() {
-    this.studentService.getStudents()
-      .then(students => this.students = students.slice(1,5));
+    this.teacherService.getTeachers()
+      .then(teachers => this.teachers = teachers.slice(1,5));
   }
 
 }
