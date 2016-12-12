@@ -12,6 +12,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import {SubjectService} from "./services/subject.service";
 import { SubjectComponent } from './subject/subject.component';
 import { TeacherComponent } from './teacher/teacher.component';
+import { AddStudentComponent } from './add-student/add-student.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TeacherComponent } from './teacher/teacher.component';
     DashboardComponent,
     StudentDetailComponent,
     SubjectComponent,
-    TeacherComponent
+    TeacherComponent,
+    AddStudentComponent
   ],
   imports: [
     BrowserModule,

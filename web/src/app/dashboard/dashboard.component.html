@@ -14,9 +14,7 @@
   </h2>
   <button (click)="goToDetail()">View Details</button>
 </div>
+
 <div>
-  <label>Student name:</label> <input #studentName />
-  <button (click)="add(name.value); name.value=''">
-    Add
-  </button>
+  <app-add-student> </app-add-student>
 </div>
