@@ -6,4 +6,4 @@ EXPOSE ${WEB_PORT}
 
 WORKDIR /web
 
-CMD ["npm", "run", "start"]
+CMD ["npm", "start"]
