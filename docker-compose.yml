@@ -16,8 +16,6 @@ api:
   links:
        - db
 web:
-  env_file:
-    - web.env
   build: ./web
   ports:
    - "4040:4040"
