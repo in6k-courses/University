@@ -19,6 +19,10 @@ public class Subject {
     @Column(name = "teacherId")
     private Integer teacherId;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "teacherId", updatable = false, insertable = false)
+    private Teacher teacher;
+
     public Integer getId() {
         return id;
     }

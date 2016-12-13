@@ -1,6 +1,7 @@
 package com.stefanovskyi.university.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "teacher")
@@ -15,6 +16,9 @@ public class Teacher {
 
     @Column(name = "subId")
     private Integer subId;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "teacher")
+    private List<Subject> subjects;
 
     public Teacher() {
     }
