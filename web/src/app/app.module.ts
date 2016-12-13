@@ -5,15 +5,15 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app/app.component';
 import { StudentComponent } from './student/student.component';
-import { StudentService } from "./services/student.service";
+import { StudentService } from "./student/student.service";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StudentDetailComponent } from './student-detail/student-detail.component';
 import { AppRoutingModule } from "./app-routing.module";
-import { SubjectService } from "./services/subject.service";
+import { SubjectService } from "./subject/subject.service";
 import { SubjectComponent } from './subject/subject.component';
 import { TeacherComponent } from './teacher/teacher.component';
 import { AddStudentComponent } from './add-student/add-student.component';
-import { TeacherService } from "./services/teacher.service";
+import { TeacherService } from "./teacher/teacher.service";
 
 @NgModule({
   declarations: [

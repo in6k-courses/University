@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from '../model/student'
-import { StudentService } from "../services/student.service";
+import { StudentService } from "./student.service";
 import { Router } from "@angular/router";
 
 @Component({

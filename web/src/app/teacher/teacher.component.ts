@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Teacher} from "../model/teacher";
 import {Router} from "@angular/router";
-import {TeacherService} from "../services/teacher.service";
+import {TeacherService} from "./teacher.service";
 
 @Component({
     selector: 'app-teacher',
