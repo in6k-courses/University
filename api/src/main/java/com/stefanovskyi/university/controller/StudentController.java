@@ -27,7 +27,7 @@ public class StudentController {
         return studentService.getOne(id);
     }
 
-    @RequestMapping(value = "", method = RequestMethod.DELETE)
+    @RequestMapping(value = "{id}", method = RequestMethod.DELETE)
     private void delete(@RequestBody Student student){
         studentService.delete(student);
     }
@@ -37,7 +37,7 @@ public class StudentController {
         studentService.add(student);
     }
 
-    @RequestMapping(value = "", method = RequestMethod.PATCH)
+    @RequestMapping(value = "{id}", method = RequestMethod.PATCH)
     private void update(@RequestBody Student student) {
         studentService.update(student);
     }

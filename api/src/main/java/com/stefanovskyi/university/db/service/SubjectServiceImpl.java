@@ -29,4 +29,14 @@ public class SubjectServiceImpl implements SubjectService {
     public void add(Subject subject) {
         subjectRepository.save(subject);
     }
+
+    @Override
+    public void delete(Integer id) {
+        subjectRepository.delete(id);
+    }
+
+    @Override
+    public void update(Subject subject) {
+        subjectRepository.save(subject);
+    }
 }

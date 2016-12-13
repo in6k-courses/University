@@ -28,4 +28,14 @@ public class TeacherServiceImpl implements TeacherService {
     public void add(Teacher teacher) {
         teacherRepository.save(teacher);
     }
+
+    @Override
+    public void delete(Integer id) {
+        teacherRepository.delete(id);
+    }
+
+    @Override
+    public void update(Teacher teacher) {
+        teacherRepository.save(teacher);
+    }
 }
