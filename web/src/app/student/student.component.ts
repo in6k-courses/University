@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from '../model/student'
-import {StudentService} from "../services/student.service";
-import {Router} from "@angular/router";
+import { StudentService } from "../services/student.service";
+import { Router } from "@angular/router";
 
 @Component({
   moduleId: module.id.toString(),

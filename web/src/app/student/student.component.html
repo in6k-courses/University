@@ -10,13 +10,9 @@
 </ul>
 <div *ngIf="selectedStudent">
   <h2>
-    {{selectedStudent.name | uppercase}} is chosen student
+    Student name is {{selectedStudent.name}}. <br>
+    Student is on {{selectedStudent.course}} course now. <br>
+    Subject {{selectedStudent.subjectId}}
   </h2>
   <button (click)="goToDetail()">View Details</button>
-</div>
-<div>
-  <label>Student name:</label> <input #studentName />
-  <button (click)="add(studentName.value); studentName.value=''">
-    Add
-  </button>
 </div>

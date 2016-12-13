@@ -8,12 +8,6 @@
             (click)="delete(teacher); $event.stopPropagation()">x</button>
   </li>
 </ul>
-<div *ngIf="selectedTeacher">
-  <h2>
-    {{selectedTeacher.name | uppercase}} is selected teacher
-  </h2>
-  <button (click)="goToDetail()">View Details</button>
-</div>
 
 <div>
   <app-add-student> </app-add-student>
