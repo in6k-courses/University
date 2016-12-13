@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Teacher } from "../model/teacher";
 import { TeacherService } from "../services/teacher.service";
-import {sha1} from "@angular/compiler/src/i18n/digest";
 
 @Component({
   moduleId: module.id.toString(),
