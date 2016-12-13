@@ -9,35 +9,35 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/api/students")
+@RequestMapping("/api/students/")
 public class StudentController {
 
     @Autowired
     StudentService studentService;
 
-    @RequestMapping("/")
+    @RequestMapping("")
     @ResponseBody
     private List<Student> getAllStudents() {
         return studentService.getAll();
     }
 
-    @RequestMapping("/{id}")
+    @RequestMapping("{id}")
     @ResponseBody
     private Student getStudent(@PathVariable("id") Integer id) {
         return studentService.getOne(id);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.DELETE)
+    @RequestMapping(value = "", method = RequestMethod.DELETE)
     private void delete(@RequestBody Student student){
         studentService.delete(student);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(value = "", method = RequestMethod.POST)
     private void add(@RequestBody Student student) {
         studentService.add(student);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.PATCH)
+    @RequestMapping(value = "", method = RequestMethod.PATCH)
     private void update(@RequestBody Student student) {
         studentService.update(student);
     }
