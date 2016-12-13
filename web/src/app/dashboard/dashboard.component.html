@@ -7,6 +7,7 @@
   </li>
 </ul>
 
-<div>
+<button (click)="showAddForm()">{{addButtonText}}</button>
+<div [hidden]="show">
   <app-add-student> </app-add-student>
 </div>
