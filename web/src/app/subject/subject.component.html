@@ -1,8 +1,6 @@
 <h2>Subjects</h2>
 <ul class="subjects">
-  <li *ngFor="let subject of subjects"
-      [class.selected]="subject === selectedSubject"
-      (click)="onSelect(subject)">
+  <li *ngFor="let subject of subjects">
     <span class="badge">{{subject.id}}</span> {{subject.name}}
     <button class="delete"
             (click)="delete(subject); $event.stopPropagation()">x</button>

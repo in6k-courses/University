@@ -24,7 +24,7 @@ export class StudentComponent implements OnInit {
   }
 
   goToDetail(): void {
-    this.router.navigate(['/detail/student', this.selectedStudent.id]);
+    this.router.navigate(['/students/details', this.selectedStudent.id]);
   }
 
   ngOnInit() {
