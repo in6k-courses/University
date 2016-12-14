@@ -1,6 +1,7 @@
+import {Student} from "./student";
 export class Subject {
     id: number;
     name: string;
-    studentId: number;
+    students: Set<Student>;
     teacherId: number;
 }
