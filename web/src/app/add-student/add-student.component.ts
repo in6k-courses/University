@@ -8,7 +8,7 @@ import { Location } from "@angular/common";
   templateUrl: './add-student.component.html',
   styleUrls: ['./add-student.component.css']
 })
-export class AddStudentComponent implements OnInit {
+export class AddStudentComponent {
 
   constructor(
       private studentService:StudentService,
@@ -18,12 +18,5 @@ export class AddStudentComponent implements OnInit {
 
   add(name:string):void{
     this.studentService.create(name);
-  }
-
-  ngOnInit() {
-  }
-
-  goBack(): void {
-      this.location.back()
   }
 }

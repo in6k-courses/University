@@ -1,9 +1,12 @@
 package com.stefanovskyi.university.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
-@Table(name = "student")
+@Table(name = "students")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,8 +19,13 @@ public class Student {
     @Column(name = "course")
     private Integer course;
 
-    @Column(name = "subjectId")
-    private Integer subjectId;
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "student_subject", joinColumns = {
+            @JoinColumn(name = "student_id", nullable = false, updatable = false) },
+            inverseJoinColumns = { @JoinColumn(name = "subject_id",
+                    nullable = false, updatable = false) })
+    private Set<Subject> subjects;
 
     public Student() {
     }
@@ -46,11 +54,11 @@ public class Student {
         this.course = course;
     }
 
-    public Integer getSubjectId() {
-        return subjectId;
+    public Set<Subject> getSubjects() {
+        return subjects;
     }
 
-    public void setSubjectId(Integer subjectId) {
-        this.subjectId = subjectId;
+    public void setSubjects(Set<Subject> subjects) {
+        this.subjects = subjects;
     }
 }

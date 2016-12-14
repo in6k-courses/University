@@ -1,11 +1,17 @@
-<div>
-	<form>
-		<label> Add student</label> <br>
-		<input #studentName /> <label>Name:</label> <br>
-		<input #studentSubject /> <label>Subject:</label> <br>
-		<input #studentCourse /> <label>Course:</label> <br>
-		<button (click)="add(studentName.value)">
-			Add
-		</button>
-	</form>
+<div class="container-fluid" class="col-xs-12 col-md-0">
+    <form>
+        <label> Add student</label> <br>
+        <div class="form-group">
+            <label for="student">Name:</label>
+            <input #studentName type="text"
+                   class="form-control"
+                   id="student"
+                   placeholder="Donald Trump">
+        </div>
+        <br>
+        <button class="btn btn-success"
+                (click)="add(studentName.value)">
+            Add
+        </button>
+    </form>
 </div>

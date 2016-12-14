@@ -1,13 +1,33 @@
-<h2>Hard workers</h2>
-<ul class="teachers">
-  <li *ngFor="let teacher of teachers">
-    {{teacher.id}} - {{teacher.name}}
-    <button class="delete"
-            (click)="delete(teacher); $event.stopPropagation()">x</button>
-  </li>
-</ul>
+<div class="container-fluid">
+    <h2>Hard workers</h2>
 
-<button (click)="showAddForm()">{{addButtonText}}</button>
-<div [hidden]="show">
-  <app-add-student> </app-add-student>
+    <div class="col-xs-6 col-md-3">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let teacher of teachers"
+                [class.selected]="teacher === selectedTeacher"
+                (click)="onSelect(teacher)">
+                <td>{{teacher.id}}</td>
+                <td>{{teacher.name}}</td>
+                <td>
+                    <button class="btn btn-danger"
+                            (click)="delete(teacher); $event.stopPropagation()">Delete
+                    </button>
+                </td>
+                <td>
+                    <button class="btn btn-warning"
+                            (click)="delete(teacher); $event.stopPropagation()">Edit
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
 </div>

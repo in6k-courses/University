@@ -1,18 +1,52 @@
-<h2>Students</h2>
-<ul class="students">
-  <li *ngFor="let student of students"
-      [class.selected]="student === selectedStudent"
-      (click)="onSelect(student)">
-    <span class="badge">{{student.id}}</span> {{student.name}}
-    <button class="delete"
-            (click)="delete(student); $event.stopPropagation()">x</button>
-  </li>
-</ul>
-<div *ngIf="selectedStudent">
-  <h2>
-    Student name is {{selectedStudent.name}}. <br>
-    Student is on {{selectedStudent.course}} course now. <br>
-    Subject {{selectedStudent.subjectId}}
-  </h2>
-  <button (click)="goToDetail()">View Details</button>
+<div class="container-fluid" class="col-xs-6 col-md-3">
+    <h2>Students</h2>
+
+    <button class="btn btn-secondary"
+            (click)="showAddForm()">{{addButtonText}}
+    </button>
+    <div [hidden]="show">
+        <app-add-student></app-add-student>
+    </div>
+    <div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let student of students"
+                [class.selected]="student === selectedStudent"
+                (click)="onSelect(student)">
+                <td>{{student.id}}</td>
+                <td>{{student.name}}</td>
+                <td>{{student.course}}</td>
+                <td>
+                    <button class="btn btn-danger"
+                            (click)="delete(student); $event.stopPropagation()">Delete
+                    </button>
+                </td>
+                <td>
+                    <button class="btn btn-warning"
+                            (click)="delete(student); $event.stopPropagation()">Edit
+                    </button>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="selectedStudent">
+        <h2>
+            Student name is {{selectedStudent.name}}. <br>
+            Student is on {{selectedStudent.course}} course now. <br>
+            Subject {{selectedStudent.subjects}}
+        </h2>
+        <button class="btn btn-info"
+                (click)="goToDetail()">View Details
+        </button>
+    </div>
 </div>
