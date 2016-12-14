@@ -22,10 +22,6 @@ export class SubjectComponent implements OnInit {
             .then(subjects => this.subjects = subjects);
     }
 
-    goToDetail(): void {
-        this.router.navigate(['/detail/subject', this.selectedSubject.id]);
-    }
-
     ngOnInit() {
         this.getSubjects();
     }

@@ -5,8 +5,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>id</th>
-                <th>name</th>
+                <th>id</th> <th>Name</th> <th>Teacher</th>
             </tr>
             </thead>
             <tbody>
@@ -15,19 +14,30 @@
                 (click)="onSelect(subject)">
                 <td>{{subject.id}}</td>
                 <td>{{subject.name}}</td>
-                <td>
-                    <button class="btn btn-danger"
-                            (click)="delete(subject); $event.stopPropagation()">Delete
-                    </button>
-                </td>
-                <td>
-                    <button class="btn btn-warning"
-                            (click)="delete(subject); $event.stopPropagation()">Edit
-                    </button>
-                </td>
+                <td>{{subject.teacherId}}</td>
             </tr>
             </tbody>
         </table>
+    </div>
+
+    <div *ngIf="selectedSubject">
+        <div class="form-group">
+            <label for="subject-name">Student name:</label>
+            <input type="text" class="form-control" id="subject-name"
+                   placeholder="{{selectedSubject.name}}">
+        </div>
+        <div class="form-group">
+            <label for="course">Course:</label>
+            <input type="text" class="form-control" id="course"
+                   placeholder="{{selectedSubject.teacherId}}">
+        </div>
+
+        <button class="btn btn-warning"
+                (click)="edit(subject); $event.stopPropagation()">Save changes
+        </button>
+        <button class="btn btn-danger"
+                (click)="delete(subject); $event.stopPropagation()">Delete
+        </button>
     </div>
 
 </div>
