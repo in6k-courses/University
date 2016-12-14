@@ -6,15 +6,25 @@
   <app-add-student> </app-add-student>
 </div>
 
-<ul class="students">
-  <li *ngFor="let student of students"
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>id</th>
+    <th>name</th>
+    <th>Email</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let student of students"
       [class.selected]="student === selectedStudent"
       (click)="onSelect(student)">
-    <span class="badge">{{student.id}}</span> {{student.name}}
-    <button class="btn btn-danger"
-            (click)="delete(student); $event.stopPropagation()">x</button>
-  </li>
-</ul>
+    <td>{{student.id}}</td>
+    <td>{{student.name}}</td>
+    <td>{{student.course}}</td>
+  </tr>
+  </tbody>
+</table>
+
 <div *ngIf="selectedStudent">
   <h2>
     Student name is {{selectedStudent.name}}. <br>
