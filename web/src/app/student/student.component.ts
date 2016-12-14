@@ -13,6 +13,10 @@ import { Router } from "@angular/router";
 export class StudentComponent implements OnInit {
   students: Student[];
   selectedStudent: Student;
+
+    show:boolean;
+    addButtonText:string;
+
   constructor(
     private router: Router,
     private studentService: StudentService) { }
@@ -28,7 +32,9 @@ export class StudentComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getStudents();
+      this.show = true;
+      this.addButtonText = "Add student";
+      this.getStudents();
   }
 
   onSelect(student: Student): void {
@@ -52,5 +58,11 @@ export class StudentComponent implements OnInit {
                 this.students = this.students.filter(h => h !== student);
                 if (this.selectedStudent === student) { this.selectedStudent = null; }
             });
+    }
+
+    showAddForm(): void {
+        this.show = !this.show;
+        if (this.show) this.addButtonText = "Add student";
+        else this.addButtonText = "Hide form";
     }
 }
