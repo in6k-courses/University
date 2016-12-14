@@ -1,9 +1,13 @@
 package com.stefanovskyi.university.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
-@Table(name = "subject")
+@Table(name = "subjects")
 public class Subject {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,15 +17,17 @@ public class Subject {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "studentId")
-    private Integer studentId;
-
     @Column(name = "teacherId")
     private Integer teacherId;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "teacherId", updatable = false, insertable = false)
     private Teacher teacher;
+
+    @JsonIgnoreProperties
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "subjects")
+    private Set<Student> students;
 
     public Integer getId() {
         return id;
@@ -39,19 +45,27 @@ public class Subject {
         this.name = name;
     }
 
-    public Integer getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(Integer studentId) {
-        this.studentId = studentId;
-    }
-
     public Integer getTeacherId() {
         return teacherId;
     }
 
     public void setTeacherId(Integer teacherId) {
         this.teacherId = teacherId;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
+    public Set<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Set<Student> students) {
+        this.students = students;
     }
 }

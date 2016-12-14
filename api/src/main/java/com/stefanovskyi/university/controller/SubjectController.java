@@ -27,17 +27,17 @@ public class SubjectController {
         return subjectService.getOne(id);
     }
 
-    @RequestMapping(value = "{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     private void delete(@PathVariable("id") Integer id){
         subjectService.delete(id);
     }
 
-    @RequestMapping(value = "", method = RequestMethod.POST)
+    @RequestMapping(value = "/", method = RequestMethod.POST)
     private void add(@RequestBody Subject subject) {
         subjectService.add(subject);
     }
 
-    @RequestMapping(value = "{id}", method = RequestMethod.PATCH)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
     private void update(@RequestBody Subject subject) {
         subjectService.update(subject);
     }
