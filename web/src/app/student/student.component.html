@@ -1,6 +1,7 @@
 <h2>Students</h2>
 
-<button (click)="showAddForm()">{{addButtonText}}</button>
+<button class="btn btn-secondary"
+        (click)="showAddForm()">{{addButtonText}}</button>
 <div [hidden]="show">
   <app-add-student> </app-add-student>
 </div>
@@ -10,7 +11,7 @@
       [class.selected]="student === selectedStudent"
       (click)="onSelect(student)">
     <span class="badge">{{student.id}}</span> {{student.name}}
-    <button class="delete"
+    <button class="btn btn-danger"
             (click)="delete(student); $event.stopPropagation()">x</button>
   </li>
 </ul>
@@ -20,5 +21,6 @@
     Student is on {{selectedStudent.course}} course now. <br>
     Subject {{selectedStudent.subjects}}
   </h2>
-  <button (click)="goToDetail()">View Details</button>
+  <button class="btn btn-info"
+          (click)="goToDetail()">View Details</button>
 </div>

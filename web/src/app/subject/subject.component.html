@@ -2,7 +2,7 @@
 <ul class="subjects">
   <li *ngFor="let subject of subjects">
     <span class="badge">{{subject.id}}</span> {{subject.name}}
-    <button class="delete"
+    <button class="btn btn-danger"
             (click)="delete(subject); $event.stopPropagation()">x</button>
   </li>
 </ul>
