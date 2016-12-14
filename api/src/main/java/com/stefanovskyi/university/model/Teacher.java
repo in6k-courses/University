@@ -1,7 +1,7 @@
 package com.stefanovskyi.university.model;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "teacher")
@@ -18,7 +18,7 @@ public class Teacher {
     private Integer subId;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "teacher")
-    private List<Subject> subjects;
+    private Set<Subject> subjects;
 
     public Teacher() {
     }
@@ -45,5 +45,13 @@ public class Teacher {
 
     public void setSubId(Integer subId) {
         this.subId = subId;
+    }
+
+    public Set<Subject> getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(Set<Subject> subjects) {
+        this.subjects = subjects;
     }
 }
