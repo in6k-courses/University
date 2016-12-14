@@ -1,8 +1,33 @@
-<h2>Subjects</h2>
-<ul class="subjects">
-  <li *ngFor="let subject of subjects">
-    <span class="badge">{{subject.id}}</span> {{subject.name}}
-    <button class="btn btn-danger"
-            (click)="delete(subject); $event.stopPropagation()">x</button>
-  </li>
-</ul>
+<div class="container-fluid">
+    <h2>Subjects</h2>
+
+    <div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let subject of subjects"
+                [class.selected]="subject === selectedSubject"
+                (click)="onSelect(subject)">
+                <td>{{subject.id}}</td>
+                <td>{{subject.name}}</td>
+                <td>
+                    <button class="btn btn-danger"
+                            (click)="delete(subject); $event.stopPropagation()">Delete
+                    </button>
+                </td>
+                <td>
+                    <button class="btn btn-warning"
+                            (click)="delete(subject); $event.stopPropagation()">Edit
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

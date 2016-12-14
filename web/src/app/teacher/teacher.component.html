@@ -1,8 +1,31 @@
-<h2>Teachers</h2>
-<ul class="teachers">
-  <li *ngFor="let teacher of teachers">
-    <span class="badge">{{teacher.id}}</span> {{teacher.name}}
-    <button class="btn btn-danger"
-            (click)="delete(teacher); $event.stopPropagation()">x</button>
-  </li>
-</ul>
+<div class="container-fluid">
+    <h2>Teachers</h2>
+    <div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let teacher of teachers"
+                [class.selected]="teacher === selectedTeacher"
+                (click)="onSelect(teacher)">
+                <td>{{teacher.id}}</td>
+                <td>{{teacher.name}}</td>
+                <td>
+                    <button class="btn btn-danger"
+                            (click)="delete(teacher); $event.stopPropagation()">Delete
+                    </button>
+                </td>
+                <td>
+                    <button class="btn btn-warning"
+                            (click)="delete(teacher); $event.stopPropagation()">Edit
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
