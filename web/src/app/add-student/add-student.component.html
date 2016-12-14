@@ -1,7 +1,10 @@
-<div>
+<div class="container-fluid">
 	<form>
 		<label> Add student</label> <br>
-		<input #studentName /> <label>Name:</label> <br>
+		<div class="form-group">
+			<label for="student">Name:</label>
+			<input #studentName type="text" class="form-control" id="student">
+		</div> <br>
 		<button class="btn btn-success"
 				(click)="add(studentName.value)">
 			Add
