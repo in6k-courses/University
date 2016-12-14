@@ -1,13 +1,14 @@
-<div class="container-fluid">
-	<form>
-		<label> Add student</label> <br>
-		<div class="form-group">
-			<label for="student">Name:</label>
-			<input #studentName type="text" class="form-control" id="student">
-		</div> <br>
-		<button class="btn btn-success"
-				(click)="add(studentName.value)">
-			Add
-		</button>
-	</form>
+<div class="container-fluid" class="col-xs-6 col-md-3">
+    <form>
+        <label> Add student</label> <br>
+        <div class="form-group">
+            <label for="student">Name:</label>
+            <input #studentName type="text" class="form-control" id="student">
+        </div>
+        <br>
+        <button class="btn btn-success"
+                (click)="add(studentName.value)">
+            Add
+        </button>
+    </form>
 </div>
