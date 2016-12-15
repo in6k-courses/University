@@ -9,7 +9,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let subject of subjects"
+            <tr class="hand-pointer" *ngFor="let subject of subjects"
                 [class.selected]="subject === selectedSubject"
                 (click)="onSelect(subject)">
                 <td>{{subject.id}}</td>
@@ -18,26 +18,25 @@
             </tr>
             </tbody>
         </table>
-    </div>
 
-    <div *ngIf="selectedSubject">
-        <div class="form-group">
-            <label for="subject-name">Subject name:</label>
-            <input type="text" class="form-control" id="subject-name"
-                   placeholder="{{selectedSubject.name}}">
+        <div *ngIf="selectedSubject">
+            <div class="form-group">
+                <label for="subject-name">Subject name:</label>
+                <input type="text" class="form-control" id="subject-name"
+                       placeholder="{{selectedSubject.name}}">
+            </div>
+            <div class="form-group">
+                <label for="course">Course:</label>
+                <input type="text" class="form-control" id="course"
+                       placeholder="{{selectedSubject.teacherId}}">
+            </div>
+
+            <button class="btn btn-warning"
+                    (click)="update(selectedSubject); $event.stopPropagation()">Save changes
+            </button>
+            <button class="btn btn-danger"
+                    (click)="delete(selectedSubject); $event.stopPropagation()">Delete
+            </button>
         </div>
-        <div class="form-group">
-            <label for="course">Course:</label>
-            <input type="text" class="form-control" id="course"
-                   placeholder="{{selectedSubject.teacherId}}">
-        </div>
-
-        <button class="btn btn-warning"
-                (click)="update(subject); $event.stopPropagation()">Save changes
-        </button>
-        <button class="btn btn-danger"
-                (click)="delete(subject); $event.stopPropagation()">Delete
-        </button>
     </div>
-
 </div>

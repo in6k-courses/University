@@ -9,7 +9,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let teacher of teachers"
+            <tr class="hand-pointer" *ngFor="let teacher of teachers"
                 [class.selected]="teacher === selectedTeacher"
                 (click)="onSelect(teacher)">
                 <td>{{teacher.id}}</td>
