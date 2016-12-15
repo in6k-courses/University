@@ -44,7 +44,7 @@
             <div class="form-group">
                 <label for="subject-name">Teacher name:</label>
                 <input type="text" class="form-control" id="subject-name"
-                       placeholder="{{selectedTeacher.name}}">
+                       [(ngModel)]="selectedTeacher.name">
             </div>
 
             <button class="btn btn-warning"
