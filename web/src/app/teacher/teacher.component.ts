@@ -27,4 +27,13 @@ export class TeacherComponent implements OnInit {
     onSelect(teacher: Teacher): void {
         this.selectedTeacher = teacher;
     }
+
+    delete(teacher: Teacher): void {
+        this.teacherService
+            .delete(teacher.id)
+            .then(() => {
+                this.teachers = this.teachers.filter(h => h !== teacher);
+                if (this.selectedTeacher === teacher) { this.selectedTeacher = null; }
+            });
+    }
 }

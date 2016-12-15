@@ -24,10 +24,10 @@
             </div>
 
             <button class="btn btn-warning"
-                    (click)="edit(teacher); $event.stopPropagation()">Edit
+                    (click)="update(selectedTeacher); $event.stopPropagation()">Edit
             </button>
             <button class="btn btn-danger"
-                    (click)="delete(teacher); $event.stopPropagation()">Delete
+                    (click)="delete(selectedTeacher); $event.stopPropagation()">Delete
             </button>
         </div>
     </div>
