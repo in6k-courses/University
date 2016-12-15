@@ -26,4 +26,12 @@ export class SubjectComponent implements OnInit {
         this.selectedSubject = subject;
     }
 
+    delete(subject: Subject): void {
+        this.studentService
+            .delete(subject.id)
+            .then(() => {
+                this.subjects = this.subjects.filter(h => h !== subject);
+                if (this.selectedSubject === subject) { this.selectedSubject = null; }
+            });
+    }
 }
