@@ -37,7 +37,7 @@ public class SubjectController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
-    private void update(@RequestBody Subject subject) {
-        subjectService.update(subject);
+    private Subject update(@RequestBody Subject subject) {
+        return subjectService.update(subject);
     }
 }

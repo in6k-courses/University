@@ -9,5 +9,5 @@ public interface SubjectService {
     Subject getOne(Integer id);
     Subject add(Subject subject);
     void delete(Integer id);
-    void update(Subject subject);
+    Subject update(Subject subject);
 }

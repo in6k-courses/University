@@ -9,5 +9,5 @@ public interface TeacherService {
     Teacher getOne(Integer id);
     Teacher add(Teacher teacher);
     void delete(Integer id);
-    void update(Teacher teacher);
+    Teacher update(Teacher teacher);
 }
