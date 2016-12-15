@@ -9,8 +9,7 @@ import {SubjectService} from "../subject/subject.service";
     moduleId: module.id.toString(),
     selector: 'app-student',
     templateUrl: './student.component.html',
-    styleUrls: ['./student.component.css'],
-    providers: [StudentService]
+    styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
     students: Student[];
@@ -53,11 +52,11 @@ export class StudentComponent implements OnInit {
     }
 
     add(name: string): void {
-      this.studentService.create(name)
-          .then(student => {
-            this.students.push(student);
-            this.selectedStudent = null;
-          });
+        this.studentService.create(name)
+            .then(student => {
+                this.students.push(student);
+                this.selectedStudent = null;
+            });
     }
 
     delete(student: Student): void {
@@ -65,7 +64,9 @@ export class StudentComponent implements OnInit {
             .delete(student.id)
             .then(() => {
                 this.students = this.students.filter(s => s !== student);
-                if (this.selectedStudent === student) { this.selectedStudent = null; }
+                if (this.selectedStudent === student) {
+                    this.selectedStudent = null;
+                }
             });
     }
 

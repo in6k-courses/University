@@ -1,45 +1,43 @@
 import 'rxjs/add/operator/toPromise';
 
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-
-import { Injectable } from '@angular/core';
-import { Http, Headers } from "@angular/http";
-import { Student } from '../model/student'
+import {Injectable} from '@angular/core';
+import {Http, Headers} from "@angular/http";
+import {Student} from '../model/student'
 
 @Injectable()
 export class StudentService {
-  private studentUrl = '/api/students/';
-  constructor(private http: Http) { }
+    private studentUrl = '/api/students/';
 
-  getStudents(): Promise<Student[]> {
-    return this.http.get(this.studentUrl)
-      .toPromise()
-      .then(response => response.json() as Student[])
-      .catch(this.handleError);
-  }
+    constructor(private http: Http) { }
 
-  private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error);
-    return Promise.reject(error.message || error);
-  }
+    private headers = new Headers({'Content-Type': 'application/json'});
 
-  private headers = new Headers({'Content-Type': 'application/json'});
+    getStudents(): Promise<Student[]> {
+        return this.http.get(this.studentUrl)
+            .toPromise()
+            .then(response => response.json() as Student[])
+            .catch(this.handleError);
+    }
 
-  getStudent(id: number): Promise<Student> {
-    return this.getStudents()
-      .then(students => students.find(student => student.id === id));
-  }
+    private handleError(error: any): Promise<any> {
+        console.error('An error occurred', error);
+        return Promise.reject(error.message || error);
+    }
 
-  create(name: string): Promise<Student> {
-    return this.http
-        .post(this.studentUrl, JSON.stringify({name: name}), {headers: this.headers})
-        .toPromise()
-        .then(res => res.json())
-        .catch(this.handleError);
-  }
+    getStudent(id: number): Promise<Student> {
+        return this.getStudents()
+            .then(students => students.find(student => student.id === id));
+    }
 
-  delete(id: number): Promise<void> {
+    create(name: string): Promise<Student> {
+        return this.http
+            .post(this.studentUrl, JSON.stringify({name: name}), {headers: this.headers})
+            .toPromise()
+            .then(res => res.json())
+            .catch(this.handleError);
+    }
+
+    delete(id: number): Promise<void> {
         const url = `${this.studentUrl}/${id}`;
         return this.http.delete(url, {headers: this.headers})
             .toPromise()
@@ -47,7 +45,7 @@ export class StudentService {
             .catch(this.handleError);
     }
 
-  update(student: Student): Promise<Student> {
+    update(student: Student): Promise<Student> {
         const url = `${this.studentUrl}/${student.id}`;
         return this.http
             .put(url, JSON.stringify(student), {headers: this.headers})

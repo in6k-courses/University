@@ -36,7 +36,7 @@ export class TeacherComponent implements OnInit {
         this.teacherService
             .delete(teacher.id)
             .then(() => {
-                this.teachers = this.teachers.filter(h => h !== teacher);
+                this.teachers = this.teachers.filter(t => t !== teacher);
                 if (this.selectedTeacher === teacher) { this.selectedTeacher = null; }
             });
     }
@@ -50,7 +50,6 @@ export class TeacherComponent implements OnInit {
                 this.selectedTeacher = null;
             });
     }
-
 
     showAddForm(): void {
         this.show = !this.show;
