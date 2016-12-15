@@ -3,12 +3,11 @@ package com.stefanovskyi.university.controller;
 import com.stefanovskyi.university.db.service.TeacherService;
 import com.stefanovskyi.university.model.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/api/teachers")
 public class TeacherController {
 
