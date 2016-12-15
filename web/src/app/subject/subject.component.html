@@ -5,7 +5,23 @@
             (click)="showAddForm()">{{addButtonText}}
     </button>
     <div [hidden]="show">
-        <app-add-student></app-add-student>
+        <div class="container-fluid">
+            <form>
+                <label> Add subject</label> <br>
+                <div class="form-group">
+                    <label for="subject">Name:</label>
+                    <input #subjectName type="text"
+                           class="form-control"
+                           id="subject"
+                           placeholder="Math">
+                </div>
+                <br>
+                <button class="btn btn-success"
+                        (click)="add(subjectName.value)">
+                    Add
+                </button>
+            </form>
+        </div>
     </div>
 
     <div>

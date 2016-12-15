@@ -1,6 +1,30 @@
-<div class="container-fluid">
+<div class="container-fluid" class="col-xs-6 col-md-3">
     <h2>Teachers</h2>
-    <div class="col-xs-6 col-md-3">
+
+    <button class="btn btn-secondary"
+            (click)="showAddForm()">{{addButtonText}}
+    </button>
+    <div [hidden]="show">
+        <div class="container-fluid">
+            <form>
+                <label> Add teacher</label> <br>
+                <div class="form-group">
+                    <label for="teacher">Name:</label>
+                    <input #teacherName type="text"
+                           class="form-control"
+                           id="teacher"
+                           placeholder="John Oliver">
+                </div>
+                <br>
+                <button class="btn btn-success"
+                        (click)="add(teacherName.value)">
+                    Add
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div >
         <table class="table table-striped">
             <thead>
             <tr>

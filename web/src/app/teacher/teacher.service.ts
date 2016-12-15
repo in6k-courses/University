@@ -41,4 +41,13 @@ export class TeacherService {
             .then(() => teacher)
             .catch(this.handleError);
     }
+
+    create(name: string): Promise<Teacher> {
+        return this.http
+            .post(this.teacherUrl, JSON.stringify({name: name}), {headers: this.headers})
+            .toPromise()
+            .then(res => res.json())
+            .catch(this.handleError);
+    }
+
 }

@@ -12,10 +12,10 @@ export class SubjectComponent implements OnInit {
     selectedSubject: Subject;
     show:boolean;
     addButtonText:string;
-    constructor(private studentService: SubjectService) { }
+    constructor(private subjectService: SubjectService) { }
 
     getSubjects(): void {
-        this.studentService
+        this.subjectService
             .getSubjects()
             .then(subjects => this.subjects = subjects);
     }
@@ -31,7 +31,7 @@ export class SubjectComponent implements OnInit {
     }
 
     delete(subject: Subject): void {
-        this.studentService
+        this.subjectService
             .delete(subject.id)
             .then(() => {
                 this.subjects = this.subjects.filter(h => h !== subject);
@@ -39,9 +39,19 @@ export class SubjectComponent implements OnInit {
             });
     }
 
+    add(name: string): void {
+        name = name.trim();
+        if (!name) { return; }
+        this.subjectService.create(name)
+            .then(subject => {
+                this.subjects.push(subject);
+                this.selectedSubject = null;
+            });
+    }
+
     showAddForm(): void {
         this.show = !this.show;
-        if (this.show) this.addButtonText = "Add Subject";
+        if (this.show) this.addButtonText = "Add subject";
         else this.addButtonText = "Hide form";
     }
 }
