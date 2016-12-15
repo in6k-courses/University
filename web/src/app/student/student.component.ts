@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Student } from '../model/student'
 import { StudentService } from "./student.service";
 import { Router } from "@angular/router";
+import {Subject} from "../model/subject";
+import {SubjectService} from "../subject/subject.service";
 
 @Component({
   moduleId: module.id.toString(),
@@ -11,6 +13,7 @@ import { Router } from "@angular/router";
 })
 export class StudentComponent implements OnInit {
   students: Student[];
+  subjects: Subject[];
   selectedStudent: Student;
 
     show:boolean;
@@ -18,6 +21,7 @@ export class StudentComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private subjectService: SubjectService,
     private studentService: StudentService) { }
 
   getStudents(): void {
@@ -25,6 +29,12 @@ export class StudentComponent implements OnInit {
       .getStudents()
       .then(students => this.students = students);
   }
+
+    getSubjects(): void {
+        this.subjectService
+            .getSubjects()
+            .then(subjects => this.subjects = subjects);
+    }
 
   goToDetail(): void {
     this.router.navigate(['/students/details', this.selectedStudent.id]);
@@ -34,6 +44,7 @@ export class StudentComponent implements OnInit {
       this.show = true;
       this.addButtonText = "Add student";
       this.getStudents();
+      this.getSubjects();
   }
 
   onSelect(student: Student): void {
