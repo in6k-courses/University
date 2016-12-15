@@ -5,24 +5,23 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>id</th>
-                <th>name</th>
+                <th>id</th> <th>Name</th>
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let teacher of teachers"
+            <tr class="hand-pointer" *ngFor="let teacher of teachers"
                 [class.selected]="teacher === selectedTeacher"
                 (click)="onSelect(teacher)">
                 <td>{{teacher.id}}</td>
                 <td>{{teacher.name}}</td>
                 <td>
-                    <button class="btn btn-danger"
-                            (click)="delete(teacher); $event.stopPropagation()">Delete
+                    <button class="btn btn-warning"
+                            (click)="update(teacher); $event.stopPropagation()">Edit
                     </button>
                 </td>
                 <td>
-                    <button class="btn btn-warning"
-                            (click)="delete(teacher); $event.stopPropagation()">Edit
+                    <button class="btn btn-danger"
+                            (click)="delete(teacher); $event.stopPropagation()">Delete
                     </button>
                 </td>
             </tr>

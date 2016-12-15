@@ -9,7 +9,7 @@ import { Student } from '../model/student'
 
 @Injectable()
 export class StudentService {
-  private studentUrl = 'api/students/';
+  private studentUrl = '/api/students/';
   constructor(private http: Http) { }
 
   getStudents(): Promise<Student[]> {

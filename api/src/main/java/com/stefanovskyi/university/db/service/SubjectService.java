@@ -7,7 +7,7 @@ import java.util.List;
 public interface SubjectService {
     List<Subject> getAll();
     Subject getOne(Integer id);
-    void add(Subject subject);
+    Subject add(Subject subject);
     void delete(Integer id);
     void update(Subject subject);
 }

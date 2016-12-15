@@ -33,8 +33,8 @@ public class TeacherController {
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    private void add(@RequestBody Teacher teacher) {
-        teacherService.add(teacher);
+    private Teacher add(@RequestBody Teacher teacher) {
+        return teacherService.add(teacher);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PATCH)

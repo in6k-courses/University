@@ -7,7 +7,7 @@ import java.util.List;
 public interface StudentService {
     List<Student> getAll();
     Student getOne(Integer id);
-    void add(Student student);
+    Student add(Student student);
     void delete(Student student);
     void update(Student student);
 }

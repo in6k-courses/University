@@ -1,3 +1,7 @@
 .student {
     color: green;
 }
+
+.hand-pointer {
+    cursor: pointer;
+}

@@ -11,7 +11,6 @@ import { AppRoutingModule } from "./app-routing.module";
 import { SubjectService } from "./subject/subject.service";
 import { SubjectComponent } from './subject/subject.component';
 import { TeacherComponent } from './teacher/teacher.component';
-import { AddStudentComponent } from './add-student/add-student.component';
 import { TeacherService } from "./teacher/teacher.service";
 
 @NgModule({
@@ -21,7 +20,6 @@ import { TeacherService } from "./teacher/teacher.service";
     DashboardComponent,
     SubjectComponent,
     TeacherComponent,
-    AddStudentComponent
   ],
   imports: [
     BrowserModule,

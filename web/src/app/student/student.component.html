@@ -5,7 +5,23 @@
             (click)="showAddForm()">{{addButtonText}}
     </button>
     <div [hidden]="show">
-        <app-add-student></app-add-student>
+        <div class="container-fluid">
+            <form>
+                <label> Add new student</label> <br>
+                <div class="form-group">
+                    <label for="student">Name:</label>
+                    <input #studentName type="text"
+                           class="form-control"
+                           id="student"
+                           placeholder="Donald Trump">
+                </div>
+                <br>
+                <button class="btn btn-success"
+                        (click)="add(studentName.value)">
+                    Add
+                </button>
+            </form>
+        </div>
     </div>
     <div>
         <table class="table table-striped">
@@ -15,14 +31,13 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let student of students"
+            <tr class="hand-pointer" *ngFor="let student of students"
                 [class.selected]="student === selectedStudent"
                 (click)="onSelect(student)">
                 <td>{{student.id}}</td>
                 <td>{{student.name}}</td>
                 <td>{{student.course}}</td>
             </tr>
-
             </tbody>
         </table>
     </div>
@@ -33,25 +48,27 @@
                 <input type="text" class="form-control" id="student-name"
                 placeholder="{{selectedStudent.name}}">
             </div>
+        <label for="subject">Select subject:</label>
+        <select class="form-control" id="subject"  >
+            <option *ngFor="let subject of subjects"
+                    [class.selected]="subject === selectedSubject"
+                    (click)="onSelect(subject)">
+            {{subject.name}}
+            </option>
+        </select>
             <div class="form-group">
                 <label for="course">Course:</label>
                 <input type="text" class="form-control" id="course"
                 placeholder="{{selectedStudent.course}}">
             </div>
-            <div class="form-group">
-                <label for="subject">Subject:</label>
-                <input type="text" class="form-control" id="subject"
-                placeholder="{{selectedStudent.subjects}}">
-            </div>
-
         <button class="btn btn-info"
                 (click)="goToDetail()">View Details
         </button>
         <button class="btn btn-warning"
-                (click)="edit(student); $event.stopPropagation()">Save changes
+                (click)="update(selectedStudent); $event.stopPropagation()">Save changes
         </button>
         <button class="btn btn-danger"
-                (click)="delete(student); $event.stopPropagation()">Delete
+                (click)="delete(selectedStudent); $event.stopPropagation()">Delete
         </button>
     </div>
 </div>
