@@ -33,8 +33,8 @@ public class SubjectController {
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    private void add(@RequestBody Subject subject) {
-        subjectService.add(subject);
+    private Subject add(@RequestBody Subject subject) {
+        return subjectService.add(subject);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PATCH)

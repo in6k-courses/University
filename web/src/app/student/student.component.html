@@ -38,7 +38,6 @@
                 <td>{{student.name}}</td>
                 <td>{{student.course}}</td>
             </tr>
-
             </tbody>
         </table>
     </div>
@@ -49,7 +48,7 @@
                 <input type="text" class="form-control" id="student-name"
                 placeholder="{{selectedStudent.name}}">
             </div>
-        <label for="subject">Select list (select one):</label>
+        <label for="subject">Select subject:</label>
         <select class="form-control" id="subject"  >
             <option *ngFor="let subject of subjects"
                     [class.selected]="subject === selectedSubject"

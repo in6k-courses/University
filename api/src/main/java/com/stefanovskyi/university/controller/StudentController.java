@@ -33,8 +33,8 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    private void add(@RequestBody Student student) {
-        studentService.add(student);
+    private Student add(@RequestBody Student student) {
+        return studentService.add(student);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PATCH)

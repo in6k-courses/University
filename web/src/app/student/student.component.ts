@@ -1,34 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import { Student } from '../model/student'
-import { StudentService } from "./student.service";
-import { Router } from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {Student} from '../model/student'
+import {StudentService} from "./student.service";
+import {Router} from "@angular/router";
 import {Subject} from "../model/subject";
 import {SubjectService} from "../subject/subject.service";
 
 @Component({
-  moduleId: module.id.toString(),
-  selector: 'app-student',
-  templateUrl: './student.component.html',
-  styleUrls: ['./student.component.css']
+    moduleId: module.id.toString(),
+    selector: 'app-student',
+    templateUrl: './student.component.html',
+    styleUrls: ['./student.component.css'],
+    providers: [StudentService]
 })
 export class StudentComponent implements OnInit {
-  students: Student[];
-  subjects: Subject[];
-  selectedStudent: Student;
+    students: Student[];
+    subjects: Subject[];
+    selectedStudent: Student;
 
-    show:boolean;
-    addButtonText:string;
+    show: boolean;
+    addButtonText: string;
 
-  constructor(
-    private router: Router,
-    private subjectService: SubjectService,
-    private studentService: StudentService) { }
+    constructor(private router: Router,
+                private subjectService: SubjectService,
+                private studentService: StudentService) {
+    }
 
-  getStudents(): void {
-    this.studentService
-      .getStudents()
-      .then(students => this.students = students);
-  }
+    getStudents(): void {
+        this.studentService
+            .getStudents()
+            .then(students => this.students = students);
+    }
 
     getSubjects(): void {
         this.subjectService
@@ -36,36 +37,34 @@ export class StudentComponent implements OnInit {
             .then(subjects => this.subjects = subjects);
     }
 
-  goToDetail(): void {
-    this.router.navigate(['/students/details', this.selectedStudent.id]);
-  }
+    goToDetail(): void {
+        this.router.navigate(['/students/details', this.selectedStudent.id]);
+    }
 
-  ngOnInit() {
-      this.show = true;
-      this.addButtonText = "Add student";
-      this.getStudents();
-      this.getSubjects();
-  }
+    ngOnInit() {
+        this.show = true;
+        this.addButtonText = "Add student";
+        this.getStudents();
+        this.getSubjects();
+    }
 
-  onSelect(student: Student): void {
-    this.selectedStudent = student;
-  }
+    onSelect(student: Student): void {
+        this.selectedStudent = student;
+    }
 
-  add(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.studentService.create(name)
-        .then(student => {
-          this.students.push(student);
-          this.selectedStudent = null;
-        });
-  }
+    add(name: string): void {
+      this.studentService.create(name)
+          .then(student => {
+            this.students.push(student);
+            this.selectedStudent = null;
+          });
+    }
 
     delete(student: Student): void {
         this.studentService
             .delete(student.id)
             .then(() => {
-                this.students = this.students.filter(h => h !== student);
+                this.students = this.students.filter(s => s !== student);
                 if (this.selectedStudent === student) { this.selectedStudent = null; }
             });
     }
