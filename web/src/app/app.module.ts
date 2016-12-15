@@ -7,7 +7,6 @@ import { AppComponent } from './app/app.component';
 import { StudentComponent } from './student/student.component';
 import { StudentService } from "./student/student.service";
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { StudentDetailComponent } from './student-detail/student-detail.component';
 import { AppRoutingModule } from "./app-routing.module";
 import { SubjectService } from "./subject/subject.service";
 import { SubjectComponent } from './subject/subject.component';
@@ -20,7 +19,6 @@ import { TeacherService } from "./teacher/teacher.service";
     AppComponent,
     StudentComponent,
     DashboardComponent,
-    StudentDetailComponent,
     SubjectComponent,
     TeacherComponent,
     AddStudentComponent

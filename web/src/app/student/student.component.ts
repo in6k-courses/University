@@ -7,8 +7,7 @@ import { Router } from "@angular/router";
   moduleId: module.id.toString(),
   selector: 'app-student',
   templateUrl: './student.component.html',
-  styleUrls: ['./student.component.css'],
-  providers: [StudentService]
+  styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
   students: Student[];

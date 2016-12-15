@@ -11,9 +11,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>id</th>
-                <th>name</th>
-                <th>Email</th>
+                <th>id</th> <th>Name</th> <th>Course</th>
             </tr>
             </thead>
             <tbody>
@@ -23,16 +21,6 @@
                 <td>{{student.id}}</td>
                 <td>{{student.name}}</td>
                 <td>{{student.course}}</td>
-                <td>
-                    <button class="btn btn-danger"
-                            (click)="delete(student); $event.stopPropagation()">Delete
-                    </button>
-                </td>
-                <td>
-                    <button class="btn btn-warning"
-                            (click)="delete(student); $event.stopPropagation()">Edit
-                    </button>
-                </td>
             </tr>
 
             </tbody>
@@ -40,13 +28,30 @@
     </div>
 
     <div *ngIf="selectedStudent">
-        <h2>
-            Student name is {{selectedStudent.name}}. <br>
-            Student is on {{selectedStudent.course}} course now. <br>
-            Subject {{selectedStudent.subjects}}
-        </h2>
+            <div class="form-group">
+                <label for="student-name">Student name:</label>
+                <input type="text" class="form-control" id="student-name"
+                placeholder="{{selectedStudent.name}}">
+            </div>
+            <div class="form-group">
+                <label for="course">Course:</label>
+                <input type="text" class="form-control" id="course"
+                placeholder="{{selectedStudent.course}}">
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject:</label>
+                <input type="text" class="form-control" id="subject"
+                placeholder="{{selectedStudent.subjects}}">
+            </div>
+
         <button class="btn btn-info"
                 (click)="goToDetail()">View Details
+        </button>
+        <button class="btn btn-warning"
+                (click)="edit(student); $event.stopPropagation()">Save changes
+        </button>
+        <button class="btn btn-danger"
+                (click)="delete(student); $event.stopPropagation()">Delete
         </button>
     </div>
 </div>
