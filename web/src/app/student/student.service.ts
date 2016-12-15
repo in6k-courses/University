@@ -48,7 +48,7 @@ export class StudentService {
     update(student: Student): Promise<Student> {
         const url = `${this.studentUrl}/${student.id}`;
         return this.http
-            .put(url, JSON.stringify(student), {headers: this.headers})
+            .post(url, JSON.stringify(student), {headers: this.headers})
             .toPromise()
             .then(() => student)
             .catch(this.handleError);

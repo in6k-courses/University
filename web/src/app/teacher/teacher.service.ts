@@ -26,6 +26,14 @@ export class TeacherService {
             .then(teacher => teacher.find(teacher => teacher.id === id));
     }
 
+    create(name: string): Promise<Teacher> {
+        return this.http
+            .post(this.teacherUrl, JSON.stringify({name: name}), {headers: this.headers})
+            .toPromise()
+            .then(res => res.json())
+            .catch(this.handleError);
+    }
+
     delete(id: number): Promise<void> {
         const url = `${this.teacherUrl}/${id}`;
         return this.http.delete(url, {headers: this.headers})
@@ -37,17 +45,9 @@ export class TeacherService {
     update(teacher: Teacher): Promise<Teacher> {
         const url = `${this.teacherUrl}/${teacher.id}`;
         return this.http
-            .put(url, JSON.stringify(teacher), {headers: this.headers})
+            .post(url, JSON.stringify(teacher), {headers: this.headers})
             .toPromise()
             .then(() => teacher)
-            .catch(this.handleError);
-    }
-
-    create(name: string): Promise<Teacher> {
-        return this.http
-            .post(this.teacherUrl, JSON.stringify({name: name}), {headers: this.headers})
-            .toPromise()
-            .then(res => res.json())
             .catch(this.handleError);
     }
 }

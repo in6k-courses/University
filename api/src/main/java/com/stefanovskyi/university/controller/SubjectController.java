@@ -36,7 +36,7 @@ public class SubjectController {
         return subjectService.add(subject);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
+    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
     private Subject update(@RequestBody Subject subject) {
         return subjectService.update(subject);
     }

@@ -50,6 +50,11 @@ export class SubjectComponent implements OnInit {
             });
     }
 
+    save(subject: Subject): void {
+        this.subjectService.update(subject)
+        this.selectedSubject = null;
+    }
+
     showAddForm(): void {
         this.show = !this.show;
         if (this.show) this.addButtonText = "Add subject";

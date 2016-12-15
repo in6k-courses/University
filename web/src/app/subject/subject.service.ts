@@ -4,11 +4,10 @@ import {Subject} from "../model/subject";
 
 @Injectable()
 export class SubjectService {
+    private headers = new Headers({'Content-Type': 'application/json'});
     private subjectUrl = 'api/subjects/';
 
     constructor(private http: Http) { }
-
-    private headers = new Headers({'Content-Type': 'application/json'});
 
     getSubjects(): Promise<Subject[]> {
         return this.http.get(this.subjectUrl)
@@ -46,7 +45,7 @@ export class SubjectService {
     update(subject: Subject): Promise<Subject> {
         const url = `${this.subjectUrl}/${subject.id}`;
         return this.http
-            .put(url, JSON.stringify(subject), {headers: this.headers})
+            .post(url, JSON.stringify(subject), {headers: this.headers})
             .toPromise()
             .then(() => subject)
             .catch(this.handleError);

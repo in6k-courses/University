@@ -36,7 +36,7 @@ public class StudentController {
         return studentService.add(student);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
+    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
     private Student update(@RequestBody Student student) {
         return studentService.update(student);
     }

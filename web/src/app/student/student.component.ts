@@ -59,6 +59,11 @@ export class StudentComponent implements OnInit {
             });
     }
 
+    save(student: Student): void {
+        this.studentService.update(student);
+        this.selectedStudent = null;
+    }
+
     delete(student: Student): void {
         this.studentService
             .delete(student.id)
