@@ -1,8 +1,8 @@
-<div class="container-fluid" class="col-xs-8 col-md-4">
+<div class="container-fluid" class="col-xs-10 col-md-10 col-md-offset-1">
     <h2>Subjects</h2>
-
+    <div class="container-fluid col-md-6">
     <button class="btn btn-secondary" (click)="showAddForm()">{{addButtonText}} </button>
-    <div [hidden]="show" class="container-fluid">
+    <div [hidden]="show">
         <label> Add subject</label> <br>
         <div class="form-group">
             <label for="subject">Name:</label>
@@ -10,8 +10,8 @@
         </div> <br>
         <button class="btn btn-success" (click)="add(subjectName.value)">Add</button>
     </div>
-
-    <div>
+    </div>
+    <div class="no-more-tables">
         <table class="table table-striped">
             <thead> <tr> <th>id</th> <th>Name</th> <th>Teacher</th> </tr> </thead>
             <tbody>
@@ -23,7 +23,7 @@
             </tbody>
         </table>
 
-        <div *ngIf="selectedSubject">
+        <div class="container-fluid col-md-6" *ngIf="selectedSubject">
             <div class="form-group">
                 <label for="subject-name">Subject name:</label>
                 <input type="text" class="form-control" id="subject-name"
