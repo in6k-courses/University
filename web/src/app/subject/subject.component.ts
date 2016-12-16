@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {SubjectService} from "./subject.service";
-import {Subject} from "../model/subject";
+import {SchoolSubject} from "../model/subject";
 
 @Component({
     selector: 'app-subject',
@@ -8,8 +8,8 @@ import {Subject} from "../model/subject";
     styleUrls: ['./subject.component.css']
 })
 export class SubjectComponent implements OnInit {
-    subjects: Subject[];
-    selectedSubject: Subject;
+    subjects: SchoolSubject[];
+    selectedSubject: SchoolSubject;
     show: boolean;
     addButtonText: string;
 
@@ -27,11 +27,11 @@ export class SubjectComponent implements OnInit {
         this.getSubjects();
     }
 
-    onSelect(subject: Subject): void {
+    onSelect(subject: SchoolSubject): void {
         this.selectedSubject = subject;
     }
 
-    delete(subject: Subject): void {
+    delete(subject: SchoolSubject): void {
         this.subjectService
             .delete(subject.id)
             .then(() => {
@@ -50,7 +50,7 @@ export class SubjectComponent implements OnInit {
             });
     }
 
-    save(subject: Subject): void {
+    save(subject: SchoolSubject): void {
         this.subjectService.update(subject)
         this.selectedSubject = null;
     }

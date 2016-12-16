@@ -1,5 +1,5 @@
 import {Student} from "./student";
-export class Subject {
+export class SchoolSubject {
     id: number;
     name: string;
     students: Set<Student>;

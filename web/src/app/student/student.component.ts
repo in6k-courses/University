@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Student} from '../model/student'
 import {StudentService} from "./student.service";
 import {Router} from "@angular/router";
-import {Subject} from "../model/subject";
+import {SchoolSubject} from "../model/subject";
 import {SubjectService} from "../subject/subject.service";
 
 @Component({
@@ -13,7 +13,7 @@ import {SubjectService} from "../subject/subject.service";
 })
 export class StudentComponent implements OnInit {
     students: Student[];
-    subjects: Subject[];
+    subjects: SchoolSubject[];
     selectedStudent: Student;
 
     show: boolean;

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers} from "@angular/http";
-import {Subject} from "../model/subject";
+import {SchoolSubject} from "../model/subject";
 
 @Injectable()
 export class SubjectService {
@@ -9,10 +9,10 @@ export class SubjectService {
 
     constructor(private http: Http) { }
 
-    getSubjects(): Promise<Subject[]> {
+    getSubjects(): Promise<SchoolSubject[]> {
         return this.http.get(this.subjectUrl)
             .toPromise()
-            .then(response => response.json() as Subject[])
+            .then(response => response.json() as SchoolSubject[])
             .catch(this.handleError);
     }
 
@@ -21,12 +21,12 @@ export class SubjectService {
         return Promise.reject(error.message || error);
     }
 
-    getSubject(id: number): Promise<Subject> {
+    getSubject(id: number): Promise<SchoolSubject> {
         return this.getSubjects()
             .then(subjects => subjects.find(subject => subject.id === id));
     }
 
-    create(name: string): Promise<Subject> {
+    create(name: string): Promise<SchoolSubject> {
         return this.http
             .post(this.subjectUrl, JSON.stringify({name: name}), {headers: this.headers})
             .toPromise()
@@ -42,7 +42,7 @@ export class SubjectService {
             .catch(this.handleError);
     }
 
-    update(subject: Subject): Promise<Subject> {
+    update(subject: SchoolSubject): Promise<SchoolSubject> {
         const url = `${this.subjectUrl}/${subject.id}`;
         return this.http
             .post(url, JSON.stringify(subject), {headers: this.headers})

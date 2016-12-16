@@ -12,6 +12,8 @@ import { SubjectService } from "./subject/subject.service";
 import { SubjectComponent } from './subject/subject.component';
 import { TeacherComponent } from './teacher/teacher.component';
 import { TeacherService } from "./teacher/teacher.service";
+import { SubjectSearchComponent } from './subject-search/subject-search.component';
+import { SubjectSearchService } from "./subject-search/subject-search.service";
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { TeacherService } from "./teacher/teacher.service";
     DashboardComponent,
     SubjectComponent,
     TeacherComponent,
+    SubjectSearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,7 @@ import { TeacherService } from "./teacher/teacher.service";
     AppRoutingModule,
     HttpModule
   ],
-  providers: [StudentService, SubjectService, TeacherService],
+  providers: [StudentService, SubjectService, TeacherService, SubjectSearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
