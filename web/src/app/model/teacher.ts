@@ -1,6 +1,6 @@
-import {Subject} from "./subject";
+import {SchoolSubject} from "./subject";
 export class Teacher {
     id: number;
     name: string;
-    subjects: Set<Subject>;
+    subjects: Set<SchoolSubject>;
 }

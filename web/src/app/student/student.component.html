@@ -1,15 +1,17 @@
-<div class="container-fluid" class="col-xs-6 col-md-3">
+<div class="container-fluid" class="col-xs-10 col-md-10 col-md-offset-1">
     <h2>Students</h2>
+    <div class="container-fluid col-md-6">
     <button class="btn btn-secondary" (click)="showAddForm()">{{addButtonText}} </button>
-    <div [hidden]="show" class="container-fluid">
-        <label> Add new student</label> <br>
+    <div [hidden]="show">
+        <br><label> Add new student</label> <br>
         <div class="form-group">
             <label for="student">Name:</label>
             <input #studentName type="text" class="form-control" id="student" placeholder="Donald Trump">
         </div> <br>
         <button class="btn btn-success" (click)="add(studentName.value)"> Add</button>
     </div>
-    <div>
+    </div>
+    <div class="no-more-tables">
         <table class="table table-striped">
             <thead> <tr> <th>id</th> <th>Name</th> <th>Course</th> </tr> </thead>
             <tbody>
@@ -23,7 +25,7 @@
         </table>
     </div>
 
-    <div *ngIf="selectedStudent">
+    <div class="container-fluid col-md-6" *ngIf="selectedStudent">
             <div class="form-group">
                 <label for="student-name">Student name:</label>
                 <input type="text" class="form-control" id="student-name"
@@ -37,8 +39,8 @@
                 <label for="course">Course:</label>
                 <input type="text" class="form-control" id="course" placeholder="{{selectedStudent.course}}">
             </div>
-        <button class="btn btn-info"    (click)="goToDetail()">View Details </button>
-        <button class="btn btn-warning" (click)="save(selectedStudent);">Save changes </button>
-        <button class="btn btn-danger"  (click)="delete(selectedStudent);">Delete </button>
+        <button class="btn btn-info btn-sm"    (click)="goToDetail()">View Details </button>
+        <button class="btn btn-warning btn-sm" (click)="save(selectedStudent);">Save changes </button>
+        <button class="btn btn-danger btn-sm"  (click)="delete(selectedStudent);">Delete </button>
     </div>
 </div>
