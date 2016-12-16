@@ -10,8 +10,9 @@ import {Subject} from "../model/subject";
 export class SubjectComponent implements OnInit {
     subjects: Subject[];
     selectedSubject: Subject;
-    show:boolean;
-    addButtonText:string;
+    show: boolean;
+    addButtonText: string;
+
     constructor(private subjectService: SubjectService) { }
 
     getSubjects(): void {
@@ -47,6 +48,11 @@ export class SubjectComponent implements OnInit {
                 this.subjects.push(subject);
                 this.selectedSubject = null;
             });
+    }
+
+    save(subject: Subject): void {
+        this.subjectService.update(subject)
+        this.selectedSubject = null;
     }
 
     showAddForm(): void {

@@ -9,5 +9,5 @@ public interface StudentService {
     Student getOne(Integer id);
     Student add(Student student);
     void delete(Student student);
-    void update(Student student);
+    Student update(Student student);
 }

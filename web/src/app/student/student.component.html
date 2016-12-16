@@ -1,43 +1,24 @@
 <div class="container-fluid" class="col-xs-6 col-md-3">
     <h2>Students</h2>
-
-    <button class="btn btn-secondary"
-            (click)="showAddForm()">{{addButtonText}}
-    </button>
-    <div [hidden]="show">
-        <div class="container-fluid">
-            <form>
-                <label> Add new student</label> <br>
-                <div class="form-group">
-                    <label for="student">Name:</label>
-                    <input #studentName type="text"
-                           class="form-control"
-                           id="student"
-                           placeholder="Donald Trump">
-                </div>
-                <br>
-                <button class="btn btn-success"
-                        (click)="add(studentName.value)">
-                    Add
-                </button>
-            </form>
-        </div>
+    <button class="btn btn-secondary" (click)="showAddForm()">{{addButtonText}} </button>
+    <div [hidden]="show" class="container-fluid">
+        <label> Add new student</label> <br>
+        <div class="form-group">
+            <label for="student">Name:</label>
+            <input #studentName type="text" class="form-control" id="student" placeholder="Donald Trump">
+        </div> <br>
+        <button class="btn btn-success" (click)="add(studentName.value)"> Add</button>
     </div>
     <div>
         <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>id</th> <th>Name</th> <th>Course</th>
-            </tr>
-            </thead>
+            <thead> <tr> <th>id</th> <th>Name</th> <th>Course</th> </tr> </thead>
             <tbody>
             <tr class="hand-pointer" *ngFor="let student of students"
                 [class.selected]="student === selectedStudent"
                 (click)="onSelect(student)">
                 <td>{{student.id}}</td>
                 <td>{{student.name}}</td>
-                <td>{{student.course}}</td>
-            </tr>
+                <td>{{student.course}}</td> </tr>
             </tbody>
         </table>
     </div>
@@ -46,29 +27,18 @@
             <div class="form-group">
                 <label for="student-name">Student name:</label>
                 <input type="text" class="form-control" id="student-name"
-                placeholder="{{selectedStudent.name}}">
+                       [(ngModel)]="selectedStudent.name">
             </div>
         <label for="subject">Select subject:</label>
         <select class="form-control" id="subject"  >
-            <option *ngFor="let subject of subjects"
-                    [class.selected]="subject === selectedSubject"
-                    (click)="onSelect(subject)">
-            {{subject.name}}
-            </option>
+            <option *ngFor="let subject of subjects"> {{subject.name}} </option>
         </select>
             <div class="form-group">
                 <label for="course">Course:</label>
-                <input type="text" class="form-control" id="course"
-                placeholder="{{selectedStudent.course}}">
+                <input type="text" class="form-control" id="course" placeholder="{{selectedStudent.course}}">
             </div>
-        <button class="btn btn-info"
-                (click)="goToDetail()">View Details
-        </button>
-        <button class="btn btn-warning"
-                (click)="update(selectedStudent); $event.stopPropagation()">Save changes
-        </button>
-        <button class="btn btn-danger"
-                (click)="delete(selectedStudent); $event.stopPropagation()">Delete
-        </button>
+        <button class="btn btn-info"    (click)="goToDetail()">View Details </button>
+        <button class="btn btn-warning" (click)="save(selectedStudent);">Save changes </button>
+        <button class="btn btn-danger"  (click)="delete(selectedStudent);">Delete </button>
     </div>
 </div>

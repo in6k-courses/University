@@ -3,12 +3,11 @@ package com.stefanovskyi.university.controller;
 import com.stefanovskyi.university.db.service.SubjectService;
 import com.stefanovskyi.university.model.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/api/subjects")
 public class SubjectController {
 
@@ -37,8 +36,8 @@ public class SubjectController {
         return subjectService.add(subject);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
-    private void update(@RequestBody Subject subject) {
-        subjectService.update(subject);
+    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
+    private Subject update(@RequestBody Subject subject) {
+        return subjectService.update(subject);
     }
 }

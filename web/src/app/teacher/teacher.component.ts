@@ -8,10 +8,9 @@ import {TeacherService} from "./teacher.service";
     styleUrls: ['./teacher.component.css']
 })
 export class TeacherComponent implements OnInit {
-
     teachers: Teacher[];
     selectedTeacher: Teacher;
-    show:boolean;
+    show: boolean;
     addButtonText:string;
 
     constructor(private teacherService: TeacherService) {}
@@ -36,7 +35,7 @@ export class TeacherComponent implements OnInit {
         this.teacherService
             .delete(teacher.id)
             .then(() => {
-                this.teachers = this.teachers.filter(h => h !== teacher);
+                this.teachers = this.teachers.filter(t => t !== teacher);
                 if (this.selectedTeacher === teacher) { this.selectedTeacher = null; }
             });
     }
@@ -45,12 +44,18 @@ export class TeacherComponent implements OnInit {
         name = name.trim();
         if (!name) { return; }
         this.teacherService.create(name)
-            .then(subject => {
-                this.teachers.push(subject);
+            .then(teacher => {
+                this.teachers.push(teacher);
                 this.selectedTeacher = null;
             });
     }
 
+    save(teacher: Teacher): void {
+        this.teacherService.update(teacher)
+            .then(teacher => {
+            this.selectedTeacher = null;
+        });
+    }
 
     showAddForm(): void {
         this.show = !this.show;

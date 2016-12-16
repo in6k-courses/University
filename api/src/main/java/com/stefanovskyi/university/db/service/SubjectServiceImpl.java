@@ -36,7 +36,7 @@ public class SubjectServiceImpl implements SubjectService {
     }
 
     @Override
-    public void update(Subject subject) {
-        subjectRepository.save(subject);
+    public Subject update(Subject subject) {
+        return subjectRepository.save(subject);
     }
 }
