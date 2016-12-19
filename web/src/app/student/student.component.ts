@@ -27,13 +27,13 @@ export class StudentComponent implements OnInit {
     getStudents(): void {
         this.studentService
             .getStudents()
-            .then(students => this.students = students);
+            .subscribe(students => this.students = students);
     }
 
     getSubjects(): void {
         this.subjectService
             .getSubjects()
-            .then(subjects => this.subjects = subjects);
+            .subscribe(subjects => this.subjects = subjects);
     }
 
     goToDetail(): void {
@@ -53,7 +53,7 @@ export class StudentComponent implements OnInit {
 
     add(name: string): void {
         this.studentService.create(name)
-            .then(student => {
+            .subscribe(student => {
                 this.students.push(student);
                 this.selectedStudent = null;
             });
@@ -67,7 +67,7 @@ export class StudentComponent implements OnInit {
     delete(student: Student): void {
         this.studentService
             .delete(student.id)
-            .then(() => {
+            .map(() => {
                 this.students = this.students.filter(s => s !== student);
                 if (this.selectedStudent === student) {
                     this.selectedStudent = null;

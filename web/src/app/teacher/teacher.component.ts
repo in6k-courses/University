@@ -18,7 +18,7 @@ export class TeacherComponent implements OnInit {
     getTeachers(): void {
         this.teacherService
             .getTeachers()
-            .then(teachers => this.teachers = teachers);
+            .subscribe(teachers => this.teachers = teachers);
     }
 
     ngOnInit() {
@@ -34,7 +34,7 @@ export class TeacherComponent implements OnInit {
     delete(teacher: Teacher): void {
         this.teacherService
             .delete(teacher.id)
-            .then(() => {
+            .subscribe(() => {
                 this.teachers = this.teachers.filter(t => t !== teacher);
                 if (this.selectedTeacher === teacher) { this.selectedTeacher = null; }
             });
@@ -44,7 +44,7 @@ export class TeacherComponent implements OnInit {
         name = name.trim();
         if (!name) { return; }
         this.teacherService.create(name)
-            .then(teacher => {
+            .subscribe(teacher => {
                 this.teachers.push(teacher);
                 this.selectedTeacher = null;
             });
@@ -52,7 +52,7 @@ export class TeacherComponent implements OnInit {
 
     save(teacher: Teacher): void {
         this.teacherService.update(teacher)
-            .then(teacher => {
+            .subscribe(teacher => {
             this.selectedTeacher = null;
         });
     }

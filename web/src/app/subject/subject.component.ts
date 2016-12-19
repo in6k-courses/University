@@ -18,7 +18,7 @@ export class SubjectComponent implements OnInit {
     getSubjects(): void {
         this.subjectService
             .getSubjects()
-            .then(subjects => this.subjects = subjects);
+            .subscribe(subjects => this.subjects = subjects);
     }
 
     ngOnInit() {
@@ -34,7 +34,7 @@ export class SubjectComponent implements OnInit {
     delete(subject: SchoolSubject): void {
         this.subjectService
             .delete(subject.id)
-            .then(() => {
+            .subscribe(() => {
                 this.subjects = this.subjects.filter(h => h !== subject);
                 if (this.selectedSubject === subject) { this.selectedSubject = null; }
             });
@@ -44,7 +44,7 @@ export class SubjectComponent implements OnInit {
         name = name.trim();
         if (!name) { return; }
         this.subjectService.create(name)
-            .then(subject => {
+            .subscribe(subject => {
                 this.subjects.push(subject);
                 this.selectedSubject = null;
             });

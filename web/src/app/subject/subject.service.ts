@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers} from "@angular/http";
 import {SchoolSubject} from "../model/subject";
+import {Observable} from "rxjs";
 
 @Injectable()
 export class SubjectService {
@@ -9,45 +10,41 @@ export class SubjectService {
 
     constructor(private http: Http) { }
 
-    getSubjects(): Promise<SchoolSubject[]> {
+    getSubjects(): Observable<SchoolSubject[]> {
         return this.http.get(this.subjectUrl)
-            .toPromise()
-            .then(response => response.json() as SchoolSubject[])
+            .map(response => response.json() as SchoolSubject[])
             .catch(this.handleError);
     }
 
-    private handleError(error: any): Promise<any> {
+    private handleError(error: any): Observable<any> {
         console.error('An error occurred', error);
-        return Promise.reject(error.message || error);
+        return Observable.throw(error.json().error || error);
     }
 
-    getSubject(id: number): Promise<SchoolSubject> {
+    getSubject(id: number): Observable<SchoolSubject> {
         return this.getSubjects()
-            .then(subjects => subjects.find(subject => subject.id === id));
+            .map(subjects => subjects.find(subject => subject.id === id));
     }
 
-    create(name: string): Promise<SchoolSubject> {
+    create(name: string): Observable<SchoolSubject> {
         return this.http
             .post(this.subjectUrl, JSON.stringify({name: name}), {headers: this.headers})
-            .toPromise()
-            .then(res => res.json())
+            .map(res => res.json())
             .catch(this.handleError);
     }
 
-    delete(id: number): Promise<void> {
+    delete(id: number): Observable<void> {
         const url = `${this.subjectUrl}/${id}`;
         return this.http.delete(url, {headers: this.headers})
-            .toPromise()
-            .then(() => null)
+            .map(() => null)
             .catch(this.handleError);
     }
 
-    update(subject: SchoolSubject): Promise<SchoolSubject> {
+    update(subject: SchoolSubject): Observable<SchoolSubject> {
         const url = `${this.subjectUrl}/${subject.id}`;
         return this.http
             .post(url, JSON.stringify(subject), {headers: this.headers})
-            .toPromise()
-            .then(() => subject)
+            .map(() => subject)
             .catch(this.handleError);
     }
 }

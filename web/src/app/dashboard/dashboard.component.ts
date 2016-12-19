@@ -14,6 +14,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.teacherService.getTeachers()
-      .then(teachers => this.teachers = teachers.slice(1,5));
+      .subscribe(teachers => this.teachers = teachers.slice(1,5));
   }
 }

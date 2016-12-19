@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers} from "@angular/http";
 import {Teacher} from "../model/teacher";
+import {Observable} from "rxjs";
 
 @Injectable()
 export class TeacherService {
@@ -9,45 +10,41 @@ export class TeacherService {
 
     constructor(private http: Http) { }
 
-    getTeachers(): Promise<Teacher[]> {
+    getTeachers(): Observable<Teacher[]> {
         return this.http.get(this.teacherUrl)
-            .toPromise()
-            .then(response => response.json() as Teacher[])
+            .map(response => response.json() as Teacher[])
             .catch(this.handleError);
     }
 
-    private handleError(error: any): Promise<any> {
+    private handleError(error: any): Observable<any> {
         console.error('An error occurred', error);
-        return Promise.reject(error.message || error);
+        return Observable.throw(error.json().error || error);
     }
 
-    getTeacher(id: number): Promise<Teacher> {
+    getTeacher(id: number): Observable<Teacher> {
         return this.getTeachers()
-            .then(teacher => teacher.find(teacher => teacher.id === id));
+            .map(teacher => teacher.find(teacher => teacher.id === id));
     }
 
-    create(name: string): Promise<Teacher> {
+    create(name: string): Observable<Teacher> {
         return this.http
             .post(this.teacherUrl, JSON.stringify({name: name}), {headers: this.headers})
-            .toPromise()
-            .then(res => res.json())
+            .map(res => res.json())
             .catch(this.handleError);
     }
 
-    delete(id: number): Promise<void> {
+    delete(id: number): Observable<void> {
         const url = `${this.teacherUrl}/${id}`;
         return this.http.delete(url, {headers: this.headers})
-            .toPromise()
-            .then(() => null)
+            .map(() => null)
             .catch(this.handleError);
     }
 
-    update(teacher: Teacher): Promise<Teacher> {
+    update(teacher: Teacher): Observable<Teacher> {
         const url = `${this.teacherUrl}/${teacher.id}`;
         return this.http
             .post(url, JSON.stringify(teacher), {headers: this.headers})
-            .toPromise()
-            .then(() => teacher)
+            .map(() => teacher)
             .catch(this.handleError);
     }
 }
