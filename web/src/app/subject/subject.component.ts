@@ -52,7 +52,9 @@ export class SubjectComponent implements OnInit {
 
     save(subject: SchoolSubject): void {
         this.subjectService.update(subject)
-        this.selectedSubject = null;
+            .subscribe(subject => {
+                this.selectedSubject = null;
+        });
     }
 
     showAddForm(): void {

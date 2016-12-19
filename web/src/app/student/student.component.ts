@@ -60,8 +60,10 @@ export class StudentComponent implements OnInit {
     }
 
     save(student: Student): void {
-        this.studentService.update(student);
-        this.selectedStudent = null;
+        this.studentService.update(student)
+            .subscribe(student => {
+                this.selectedStudent = null;
+            });
     }
 
     delete(student: Student): void {
