@@ -5,22 +5,28 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app/app.component';
 import { StudentComponent } from './student/student.component';
-import { StudentService } from "./services/student.service";
+import { StudentService } from "./student/student.service";
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { StudentDetailComponent } from './student-detail/student-detail.component';
 import { AppRoutingModule } from "./app-routing.module";
-import {SubjectService} from "./services/subject.service";
+import { SubjectService } from "./subject/subject.service";
 import { SubjectComponent } from './subject/subject.component';
 import { TeacherComponent } from './teacher/teacher.component';
+import { TeacherService } from "./teacher/teacher.service";
+import { SubjectSearchComponent } from './subject-search/subject-search.component';
+import { SubjectSearchService } from "./subject-search/subject-search.service";
+import { AddFormComponent } from './add-form/add-form.component';
+import { NotFoundComponent } from './not-found-component/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentComponent,
     DashboardComponent,
-    StudentDetailComponent,
     SubjectComponent,
-    TeacherComponent
+    TeacherComponent,
+    SubjectSearchComponent,
+    AddFormComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +34,7 @@ import { TeacherComponent } from './teacher/teacher.component';
     AppRoutingModule,
     HttpModule
   ],
-  providers: [StudentService, SubjectService],
+  providers: [StudentService, SubjectService, TeacherService, SubjectSearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

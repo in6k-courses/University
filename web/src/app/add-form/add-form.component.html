@@ -1,0 +1,13 @@
+<div class="container-fluid">
+  <br><label> Add new student</label> <br>
+  <div class="form-group">
+    <label for="student">Name:</label>
+    <input  class="form-control"
+            #studentName type="text"
+            id="student"
+            placeholder="Donald Trump">
+  </div> <br>
+  <button class="btn btn-success"
+          (click)="add(studentName.value)">
+    Add</button>
+</div>

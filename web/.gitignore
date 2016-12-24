@@ -1,0 +1,6 @@
+
+.idea/
+dist/
+e2e/
+node_modules/
+web.iml

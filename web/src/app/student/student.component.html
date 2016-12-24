@@ -1,22 +1,46 @@
-<h2>Students</h2>
-<ul class="students">
-  <li *ngFor="let student of students"
-      [class.selected]="student === selectedStudent"
-      (click)="onSelect(student)">
-    <span class="badge">{{student.id}}</span> {{student.name}}
-    <button class="delete"
-            (click)="delete(student); $event.stopPropagation()">x</button>
-  </li>
-</ul>
-<div *ngIf="selectedStudent">
-  <h2>
-    {{selectedStudent.name | uppercase}} is chosen student
-  </h2>
-  <button (click)="goToDetail()">View Details</button>
-</div>
-<div>
-  <label>Student name:</label> <input #studentName />
-  <button (click)="add(studentName.value); studentName.value=''">
-    Add
-  </button>
+<div class="container-fluid" class="col-xs-10 col-md-10 col-md-offset-1">
+    <h2>Students</h2>
+    <div class="container-fluid col-md-6">
+    <button class="btn btn-secondary" (click)="showAddForm()">{{addButtonText}} </button>
+    <div [hidden]="show">
+        <br><label> Add new student</label> <br>
+        <div class="form-group">
+            <label for="student">Name:</label>
+            <input #studentName type="text" class="form-control" id="student" placeholder="Donald Trump">
+        </div> <br>
+        <button class="btn btn-success" (click)="add(studentName.value)"> Add</button>
+    </div>
+    </div>
+    <div class="no-more-tables">
+        <table class="table table-striped">
+            <thead> <tr> <th>id</th> <th>Name</th> <th>Course</th> </tr> </thead>
+            <tbody>
+            <tr class="hand-pointer" *ngFor="let student of students"
+                [class.selected]="student === selectedStudent"
+                (click)="onSelect(student)">
+                <td>{{student.id}}</td>
+                <td>{{student.name}}</td>
+                <td>{{student.course}}</td> </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container-fluid col-md-6" *ngIf="selectedStudent">
+            <div class="form-group">
+                <label for="student-name">Student name:</label>
+                <input type="text" class="form-control" id="student-name"
+                       [(ngModel)]="selectedStudent.name">
+            </div>
+        <label for="subject">Select subject:</label>
+        <select class="form-control" id="subject"  >
+            <option *ngFor="let subject of subjects"> {{subject.name}} </option>
+        </select>
+            <div class="form-group">
+                <label for="course">Course:</label>
+                <input type="text" class="form-control" id="course" placeholder="{{selectedStudent.course}}">
+            </div>
+        <button class="btn btn-info btn-sm"    (click)="goToDetail()">View Details </button>
+        <button class="btn btn-warning btn-sm" (click)="save(selectedStudent);">Save changes </button>
+        <button class="btn btn-danger btn-sm"  (click)="delete(selectedStudent);">Delete </button>
+    </div>
 </div>

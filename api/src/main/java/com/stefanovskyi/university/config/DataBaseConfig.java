@@ -1,6 +1,6 @@
 package com.stefanovskyi.university.config;
 
-import com.stefanovskyi.university.util.PropertyHandler;
+import com.stefanovskyi.university.config.util.PropertyHandler;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

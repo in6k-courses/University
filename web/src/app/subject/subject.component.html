@@ -1,10 +1,42 @@
-<h2>Subjects</h2>
-<ul class="subjects">
-  <li *ngFor="let subject of subjects"
-      [class.selected]="subject === selectedSubject"
-      (click)="onSelect(subject)">
-    <span class="badge">{{subject.id}}</span> {{subject.name}}
-    <button class="delete"
-            (click)="delete(subject); $event.stopPropagation()">x</button>
-  </li>
-</ul>
+<div class="container-fluid" class="col-xs-10 col-md-10 col-md-offset-1">
+    <h2>Subjects</h2>
+    <div class="container-fluid col-md-6">
+    <button class="btn btn-secondary" (click)="showAddForm()">{{addButtonText}} </button>
+    <div [hidden]="show">
+        <br><label> Add subject</label> <br>
+        <div class="form-group">
+            <label for="subject">Name:</label>
+            <input #subjectName type="text" class="form-control" id="subject" placeholder="Math">
+        </div> <br>
+        <button class="btn btn-success" (click)="add(subjectName.value)">Add</button>
+    </div>
+    </div>
+    <div class="no-more-tables">
+        <table class="table table-striped">
+            <thead> <tr> <th>id</th> <th>Name</th> <th>Teacher</th> </tr> </thead>
+            <tbody>
+            <tr class="hand-pointer" *ngFor="let subject of subjects"
+                [class.selected]="subject === selectedSubject"
+                (click)="onSelect(subject)">
+                <td>{{subject.id}}</td> <td>{{subject.name}}</td> <td>{{subject.teacherId}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="container-fluid col-md-6" *ngIf="selectedSubject">
+            <div class="form-group">
+                <label for="subject-name">Subject name:</label>
+                <input type="text" class="form-control" id="subject-name"
+                       [(ngModel)]="selectedSubject.name">
+            </div>
+            <div class="form-group">
+                <label for="course">Teacher:</label>
+                <input type="text" class="form-control" id="course"
+                       placeholder="{{selectedSubject.teacherId}}">
+            </div>
+
+            <button class="btn btn-warning" (click)="save(selectedSubject);">Save changes </button>
+            <button class="btn btn-danger"  (click)="delete(selectedSubject);">Delete </button>
+        </div>
+    </div>
+</div>

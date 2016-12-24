@@ -1,6 +1,7 @@
-export class Subject {
+import {Student} from "./student";
+export class SchoolSubject {
     id: number;
     name: string;
-    studentId: number;
+    students: Set<Student>;
     teacherId: number;
 }

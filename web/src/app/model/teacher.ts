@@ -1,5 +1,6 @@
+import {SchoolSubject} from "./subject";
 export class Teacher {
     id: number;
     name: string;
-    subjectId: number;
+    subjects: Set<SchoolSubject>;
 }

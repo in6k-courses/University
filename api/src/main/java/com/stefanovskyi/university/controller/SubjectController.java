@@ -1,16 +1,13 @@
 package com.stefanovskyi.university.controller;
 
-import com.stefanovskyi.university.db.service.SubjectService;
-import com.stefanovskyi.university.model.Subject;
+import com.stefanovskyi.university.model.service.interfaces.SubjectService;
+import com.stefanovskyi.university.model.university.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/api/subjects")
 public class SubjectController {
 
@@ -18,14 +15,27 @@ public class SubjectController {
     SubjectService subjectService;
 
     @RequestMapping("/")
-    @ResponseBody
     private List<Subject> getAllSubjects() {
         return subjectService.getAll();
     }
 
     @RequestMapping("/{id}")
-    @ResponseBody
     private Subject getSubject(@PathVariable("id") Integer id) {
         return subjectService.getOne(id);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    private void delete(@PathVariable("id") Integer id){
+        subjectService.delete(id);
+    }
+
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    private Subject add(@RequestBody Subject subject) {
+        return subjectService.add(subject);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
+    private Subject update(@RequestBody Subject subject) {
+        return subjectService.update(subject);
     }
 }

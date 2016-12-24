@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Student} from "../model/student";
-import {StudentService} from "../services/student.service";
+import { Teacher } from "../model/teacher";
+import { TeacherService } from "../teacher/teacher.service";
 
 @Component({
   moduleId: module.id.toString(),
@@ -9,13 +9,11 @@ import {StudentService} from "../services/student.service";
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
-  students: Student [] = [];
-  constructor(private studentService : StudentService) {}
+  teachers: Teacher [] = [];
+  constructor(private teacherService : TeacherService) {}
 
   ngOnInit() {
-    this.studentService.getStudents()
-      .then(students => this.students = students.slice(1,5));
+    this.teacherService.getTeachers()
+      .subscribe(teachers => this.teachers = teachers.slice(1,5));
   }
-
 }
