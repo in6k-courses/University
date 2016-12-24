@@ -1,6 +1,7 @@
 package com.stefanovskyi.university.db.service;
 
 import com.stefanovskyi.university.db.repositories.SubjectRepository;
+import com.stefanovskyi.university.db.service.interfaces.SubjectService;
 import com.stefanovskyi.university.model.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

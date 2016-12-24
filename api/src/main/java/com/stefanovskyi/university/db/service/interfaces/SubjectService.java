@@ -1,4 +1,4 @@
-package com.stefanovskyi.university.db.service;
+package com.stefanovskyi.university.db.service.interfaces;
 
 import com.stefanovskyi.university.model.Subject;
 

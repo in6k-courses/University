@@ -1,6 +1,7 @@
 package com.stefanovskyi.university.db.service;
 
 import com.stefanovskyi.university.db.repositories.TeacherRepository;
+import com.stefanovskyi.university.db.service.interfaces.TeacherService;
 import com.stefanovskyi.university.model.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
