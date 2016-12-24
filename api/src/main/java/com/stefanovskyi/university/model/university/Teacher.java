@@ -1,4 +1,4 @@
-package com.stefanovskyi.university.model;
+package com.stefanovskyi.university.model.university;
 
 import javax.persistence.*;
 import java.util.Set;

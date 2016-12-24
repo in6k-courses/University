@@ -1,8 +1,8 @@
-package com.stefanovskyi.university.db.service;
+package com.stefanovskyi.university.model.service;
 
-import com.stefanovskyi.university.db.repositories.StudentRepository;
-import com.stefanovskyi.university.db.service.interfaces.StudentService;
-import com.stefanovskyi.university.model.Student;
+import com.stefanovskyi.university.model.repositories.StudentRepository;
+import com.stefanovskyi.university.model.service.interfaces.StudentService;
+import com.stefanovskyi.university.model.university.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

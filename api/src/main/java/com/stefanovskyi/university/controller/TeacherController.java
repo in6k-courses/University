@@ -1,7 +1,7 @@
 package com.stefanovskyi.university.controller;
 
-import com.stefanovskyi.university.db.service.interfaces.TeacherService;
-import com.stefanovskyi.university.model.Teacher;
+import com.stefanovskyi.university.model.service.interfaces.TeacherService;
+import com.stefanovskyi.university.model.university.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

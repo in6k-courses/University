@@ -1,6 +1,6 @@
-package com.stefanovskyi.university.db.service.interfaces;
+package com.stefanovskyi.university.model.service.interfaces;
 
-import com.stefanovskyi.university.model.Subject;
+import com.stefanovskyi.university.model.university.Subject;
 
 import java.util.List;
 

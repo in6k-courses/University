@@ -1,4 +1,4 @@
-package com.stefanovskyi.university.util;
+package com.stefanovskyi.university.config.util;
 
 import java.net.URI;
 import java.net.URISyntaxException;
