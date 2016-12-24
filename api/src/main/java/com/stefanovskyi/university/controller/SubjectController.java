@@ -15,13 +15,11 @@ public class SubjectController {
     SubjectService subjectService;
 
     @RequestMapping("/")
-    @ResponseBody
     private List<Subject> getAllSubjects() {
         return subjectService.getAll();
     }
 
     @RequestMapping("/{id}")
-    @ResponseBody
     private Subject getSubject(@PathVariable("id") Integer id) {
         return subjectService.getOne(id);
     }

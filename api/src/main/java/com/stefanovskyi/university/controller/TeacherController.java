@@ -15,13 +15,11 @@ public class TeacherController {
     TeacherService teacherService;
 
     @RequestMapping("/")
-    @ResponseBody
     private List<Teacher> getAllTeachers() {
         return teacherService.getAll();
     }
 
     @RequestMapping("/{id}")
-    @ResponseBody
     private Teacher getTeacher(@PathVariable("id") Integer id) {
         return teacherService.getOne(id);
     }
