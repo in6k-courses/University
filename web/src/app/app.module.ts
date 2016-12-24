@@ -15,6 +15,7 @@ import { TeacherService } from "./teacher/teacher.service";
 import { SubjectSearchComponent } from './subject-search/subject-search.component';
 import { SubjectSearchService } from "./subject-search/subject-search.service";
 import { AddFormComponent } from './add-form/add-form.component';
+import { NotFoundComponent } from './not-found-component/not-found.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AddFormComponent } from './add-form/add-form.component';
     TeacherComponent,
     SubjectSearchComponent,
     AddFormComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
